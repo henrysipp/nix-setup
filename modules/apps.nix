@@ -9,7 +9,6 @@
       pkgs.fnm 
     ];
 
-
   # Add homebrew package management
   homebrew = {
     enable = true;
@@ -24,6 +23,11 @@
     brews = [ 
       "sapling" # Looks like nix version is very outdated, mayhaps learn how to update and PR?
     ];
-    casks = [ "ghostty" "nikitabobko/tap/aerospace" ];
+    casks = [ 
+      "1password"
+      "ghostty"
+      "visual-studio-code"
+      "nikitabobko/tap/aerospace" 
+    ];
   };
 }

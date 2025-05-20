@@ -1,12 +1,9 @@
 {self, username, pkgs, ...}:
 
+# TODO: This can probably be abstracted/moved to other more relevant files
 {
-
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
-
-  # Enable alternative shell support in nix-darwin.
-  # programs.fish.enable = true;
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -30,6 +27,4 @@
     dock.mru-spaces = false; # Most recent used spaces ordering
     finder.FXPreferredViewStyle = "clmv"; # Default finder view is columns view
   };
-
-
 }
