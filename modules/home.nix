@@ -11,7 +11,6 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    pkgs.starship 
   ];
 
   # Environment variables
@@ -44,11 +43,16 @@
     };
     zsh = {
       enable = true;
-      # ohMyZsh = {
-      #   enable = true;
-      #   plugins = [ "git" "thefuck" "zsh-autosuggestions"];
-      #   theme = "robbyrussell";
-      # };
+      autosuggestion.enable = true;
+      zplug = {
+        enable = true;
+        plugins = [ 
+          { name = "plugins/git"; tags = [ from:oh-my-zsh ]; }
+          # { name = "thefuck"; } 
+          { name = "fdellwing/zsh-bat"; tags = [ as:command ]; }
+        ];
+        # theme = "robbyrussell";
+      };
 
       shellAliases = {
         update = "sudo darwin-rebuild switch --flake ~/nix-darwin-config";
