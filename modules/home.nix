@@ -10,7 +10,9 @@
   home.stateVersion = "25.05";
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [];
+  home.packages = with pkgs; [
+    pkgs.starship 
+  ];
 
   # Environment variables
   home.sessionVariables = {
@@ -25,6 +27,20 @@
       enable = true;
       userName = "Henry Sipp";
       userEmail = "hesipp@gmail.com";
+    };
+    starship = {
+      enable = true;
+      # Configuration written to ~/.config/starship.toml
+      settings = {
+        # add_newline = false;
+
+        # character = {
+        #   success_symbol = "[➜](bold green)";
+        #   error_symbol = "[➜](bold red)";
+        # };
+
+        # package.disabled = true;
+      };
     };
     zsh = {
       enable = true;

@@ -12,14 +12,14 @@
   # Add homebrew package management
   homebrew = {
     enable = true;
-
     onActivation = {
       autoUpdate = true;
       cleanup = "uninstall"; # This makes homebrew declarative!
       upgrade = true;
     };
-
-    taps = [];
+    taps = [
+      # "nikitabobko/tap/aerospace" 
+    ];
     brews = [ 
       "sapling" # Looks like nix version is very outdated, mayhaps learn how to update and PR?
     ];
@@ -27,7 +27,6 @@
       "1password"
       "ghostty"
       "visual-studio-code"
-      "nikitabobko/tap/aerospace" 
     ];
   };
 }
