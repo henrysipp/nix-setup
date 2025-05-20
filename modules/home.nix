@@ -36,12 +36,13 @@
 
       shellAliases = {
         update = "sudo darwin-rebuild switch --flake ~/nix-darwin-config";
+        nix-gc = "nix-env --delete-generations +3";
       };
     };
     neovim = {
       enable = true;
       plugins = [
-        pkgs.vimPlugins.LazyVim # Its honestly so cool that this is all we need to do
+        pkgs.vimPlugins.LazyVim 
       ];
     };
   };
