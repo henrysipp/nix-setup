@@ -16,10 +16,17 @@
     };
     taps = [
       "nikitabobko/tap"
+      "tuist/tuist"
     ];
     brews = [
       "sapling" # Looks like nix version is very outdated, mayhaps learn how to update and PR?
       "tailscale"
+
+      "tuist/tuist/tuist@4.20.0"
+      "awscli"
+      "swiftformat"
+      "swiftlint"
+      "lefthook"
     ];
     casks = [
       "1password"

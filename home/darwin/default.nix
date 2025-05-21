@@ -2,6 +2,7 @@
   imports = [
     ../base
     ./core.nix
+    ./aerospace.nix
   ];
 
   home = {
