@@ -32,6 +32,7 @@
       "1password"
       "ghostty"
       "docker"
+      "spotify"
       "sublime-text"
       "claude"
       "jetbrains-toolbox"

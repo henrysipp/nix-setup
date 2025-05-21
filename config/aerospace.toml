@@ -53,12 +53,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 # Allow for more space on smaller screens
-inner.horizontal = [ { monitor."Built-in Retina Display" = 25 }, 25  ]
-inner.vertical =   [ { monitor."Built-in Retina Display" = 25 }, 25  ]
-outer.left =       [ { monitor."Built-in Retina Display" = 15 }, 15  ]
-outer.bottom =     [ { monitor."Built-in Retina Display" = 15 }, 15  ]
-outer.top =        [ { monitor."Built-in Retina Display" = 16 }, 15  ]
-outer.right =      [ { monitor."Built-in Retina Display" = 15 }, 15  ]
+inner.horizontal = [ { monitor."Built-in Retina Display" = 4 }, 8  ]
+inner.vertical =   [ { monitor."Built-in Retina Display" = 4 }, 8  ]
+outer.left =       [ { monitor."Built-in Retina Display" = 4 }, 8  ]
+outer.bottom =     [ { monitor."Built-in Retina Display" = 4 }, 8  ]
+outer.top =        [ { monitor."Built-in Retina Display" = 4 }, 8  ]
+outer.right =      [ { monitor."Built-in Retina Display" = 4 }, 8  ]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -124,7 +124,7 @@ alt-a = 'workspace A' # AI
 alt-b = 'workspace B' # Browsers
 alt-c = 'workspace C' # Chat apps
 alt-d = 'workspace D' # Development
-alt-m = 'workspace M' # Mail
+alt-m = 'workspace M' # Mail / Music
 alt-n = 'workspace N' # Notes
 alt-p = 'workspace P' # Productivity
 alt-t = 'workspace T' # Terminal
@@ -225,7 +225,6 @@ run = 'move-node-to-workspace D'
 if.app-id = 'com.apple.Safari'
 run = 'move-node-to-workspace B'
 
-
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace B'
@@ -252,11 +251,17 @@ run = 'move-node-to-workspace P'
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace P'
 
-# Mail 
+
+# Mail / Music 
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace M'
+
 
 # Zoom
 
