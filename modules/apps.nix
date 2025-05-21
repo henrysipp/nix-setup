@@ -28,7 +28,7 @@
       "ghostty"
       "docker"
       "sublime-text"
-      # "claude"
+      "claude"
       "jetbrains-toolbox"
       "visual-studio-code"
 
