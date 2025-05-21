@@ -210,6 +210,15 @@ run = 'move-node-to-workspace D'
 if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace D'
 
+
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = 'move-node-to-workspace D'
+
 ## Browsers
 
 [[on-window-detected]]
@@ -222,7 +231,7 @@ if.app-id = 'app.zen-browser.zen'
 run = 'move-node-to-workspace B'
 
 [[on-window-detected]]
-if.app-id = 'com.google.chrome'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace B'
 
 # Productivity
@@ -264,7 +273,7 @@ if.window-title-regex-substring = 'Picture-in-Picture'
 run = ['layout floating']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.simulator'
+if.app-id = 'com.apple.iphonesimulator'
 run = 'layout floating'
 
 [[on-window-detected]]

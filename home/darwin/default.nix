@@ -39,6 +39,9 @@
         ];
         # theme = "robbyrussell";
       };
+      sessionVariables = {
+        EDITOR = "nvim";
+      };
 
       shellAliases = {
         update = "sudo darwin-rebuild switch --flake ~/nix-darwin-config";
