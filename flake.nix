@@ -84,22 +84,6 @@
         });
     };
 
-    # darwinConfigurations."Henrys-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-    #   inherit system;
-    #   modules = [
-    #     ./modules/configuration.nix
-    #     ./modules/apps.nix
-    #     home-manager.darwinModules.home-manager
-    #     {
-    #       home-manager.useGlobalPkgs = true;
-    #       home-manager.useUserPackages = true;
-    #       home-manager.verbose = true;
-    #       home-manager.users.henry = import ./modules/home.nix;
-    #       # home-manager.extraSpecialArgs = specialArgs;
-    #     }
-    #   ];
-    # };
-
     # format the nix code in this flake
     # alejandra is a nix formatter with a beautiful output
     formatter = nixpkgs.lib.genAttrs allSystems (

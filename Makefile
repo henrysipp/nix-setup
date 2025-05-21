@@ -8,6 +8,9 @@ hypr-debug:
 macos:
 	sudo darwin-rebuild switch --flake .#cerulean
 
+macos-install:
+	sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#cerulean
+
 macos-debug: 
 	nix build ./#darwinConfigurations.cerulean.system --show-trace --verbose
 
