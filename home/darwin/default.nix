@@ -1,4 +1,4 @@
-{username, ...}: {
+{pkgs, username, ...}: {
   imports = [
     ../base
     ./core.nix
@@ -42,7 +42,6 @@
       sessionVariables = {
         EDITOR = "nvim";
       };
-
       shellAliases = {
         update = "sudo darwin-rebuild switch --flake ~/nix-darwin-config";
         nix-gc = "nix-env --delete-generations +3";
@@ -51,7 +50,7 @@
     neovim = {
       enable = true;
       plugins = [
-        # pkgs.vimPlugins.LazyVim
+        pkgs.vimPlugins.LazyVim
       ];
     };
   };

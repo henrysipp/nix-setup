@@ -15,7 +15,7 @@
       upgrade = true;
     };
     taps = [
-      "nikitabobko/tap"
+      # "nikitabobko/aerospace"
       "tuist/tuist"
     ];
     brews = [
