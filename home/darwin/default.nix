@@ -20,13 +20,6 @@
   };
 
   programs = {
-    starship = {
-      enable = true;
-      # Configuration written to ~/.config/starship.toml
-      settings = {
-        # add_newline = false;
-      };
-    };
     zsh = {
       enable = true;
       autosuggestion.enable = true;

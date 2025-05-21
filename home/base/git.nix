@@ -4,4 +4,8 @@
     userName = userfullname;
     userEmail = useremail;
   };
+
+  programs.lazygit = {
+    enable = true;
+  };
 }
