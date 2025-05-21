@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -17,6 +21,7 @@
     nixpkgs,
     nix-darwin,
     home-manager,
+    nixvim,
     ...
   }: let
     username = "henry";
@@ -53,7 +58,7 @@
         // inputs;
 
       base_args = {
-        inherit home-manager system specialArgs;
+        inherit home-manager nixvim system specialArgs;
       };
 
       stable_args = base_args // {inherit nixpkgs;};
