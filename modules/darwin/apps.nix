@@ -1,12 +1,10 @@
-{ pkgs, ...}: 
-{
+{pkgs, ...}: {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    [ 
-      pkgs.neofetch
-      pkgs.fnm 
-    ];
+  environment.systemPackages = [
+    pkgs.neofetch
+    pkgs.fnm
+  ];
 
   # Add homebrew package management
   homebrew = {
@@ -17,12 +15,13 @@
       upgrade = true;
     };
     taps = [
-      "nikitabobko/aerospace" 
+      "nikitabobko/tap"
     ];
-    brews = [ 
+    brews = [
       "sapling" # Looks like nix version is very outdated, mayhaps learn how to update and PR?
+      "tailscale"
     ];
-    casks = [ 
+    casks = [
       "1password"
       "ghostty"
       "docker"
@@ -31,7 +30,7 @@
       "jetbrains-toolbox"
       "visual-studio-code"
 
-      "nikitabobko/tap/aerospace"
+      "aerospace"
     ];
   };
 }
