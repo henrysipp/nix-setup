@@ -1,7 +1,8 @@
 {
   nixpkgs,
   home-manager,
-  nixos-generators,
+  # nixos-generators,
+  nixvim,
   system,
   specialArgs,
   nixos-modules,
@@ -14,14 +15,14 @@ in
     modules =
       nixos-modules
       ++ [
-        nixos-generators.nixosModules.all-formats
-        {
-          # formatConfigs.iso = {config, ...}: {};
-          formatConfigs.proxmox = {config, ...}: {
-            # custom proxmox's image name
-            proxmox.qemuConf.name = "${config.networking.hostName}-nixos-${config.system.nixos.label}";
-          };
-        }
+        # nixos-generators.nixosModules.all-formats
+        # {
+        #   # formatConfigs.iso = {config, ...}: {};
+        #   formatConfigs.proxmox = {config, ...}: {
+        #     # custom proxmox's image name
+        #     proxmox.qemuConf.name = "${config.networking.hostName}-nixos-${config.system.nixos.label}";
+        #   };
+        # }
 
         home-manager.nixosModules.home-manager
         {

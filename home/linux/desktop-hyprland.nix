@@ -1,12 +1,11 @@
 {username, ...}: {
   imports = [
-    # ../base/desktop
 
-    # ./base
+    ./base
     # ./fcitx5
     # ./desktop
 
-    # ./hyprland
+    ./hyprland
   ];
 
   # Home Manager needs a bit of information about you and the

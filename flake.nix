@@ -35,7 +35,7 @@
     arch64_darwin = "aarch64-darwin";
     allSystems = [x64_system arch64_darwin];
 
-    nixosSystem = import ./lib/nixosSystem.nix;
+    nixosSystem = import ./utils/nixosSystem.nix;
     macosSystem = import ./utils/macosSystem.nix;
     # macSystem = import (builtins.path {path = ./utils/macosSystem.nix;});
   in {
@@ -95,5 +95,9 @@
       system:
         nixpkgs.legacyPackages.${system}.alejandra
     );
+  };
+
+  nixConfig = {
+    experimental-features = ["nix-command" "flakes"];
   };
 }

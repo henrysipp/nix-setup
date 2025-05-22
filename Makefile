@@ -1,9 +1,9 @@
 
 hypr:
-	nixos-rebuild switch --flake ./#aquamarine
+	nixos-rebuild switch --flake .#aquamarine
 
 hypr-debug:
-	nixos build .#aquamarine
+	nix build ./#aquamarine
 
 macos:
 	sudo darwin-rebuild switch --flake .#cerulean
