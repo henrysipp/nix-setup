@@ -1,10 +1,6 @@
 {username, ...}: {
   imports = [
-
-    ./base
-    # ./fcitx5
-    # ./desktop
-
+    ../base
     ./hyprland
   ];
 

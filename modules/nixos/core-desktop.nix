@@ -4,19 +4,20 @@
   ...
 }: {
   imports = [
-    ./core-server.nix
-    ./hyprland.nix
+    ./core-apps.nix
   ];
 
   nixpkgs.config.allowUnfree = lib.mkForce true;
+  boot.loader.systemd-boot.configurationLimit = lib.mkDefault 5;
+  nix.settings = {
+    experimental-features = ["nix-command" "flakes"];
+  };
+
+  environment.variables.EDITOR = "nvim";
 
   environment.shells = with pkgs; [
     bash
     zsh
-  ];
-
-  environment.systemPackages = with pkgs; [
-    kitty
   ];
 
   # Enable sound with pipewire.
@@ -34,15 +35,4 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-
-  programs = {
-  	steam = {
-  		enable = true;
-  	};
-  	_1password-gui = {
-  		enable = true;
-  	};
-  };
-
 }

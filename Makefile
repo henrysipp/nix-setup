@@ -1,6 +1,6 @@
 
 hypr:
-	nixos-rebuild switch --flake .#aquamarine
+	sudo nixos-rebuild switch --flake .#aquamarine
 
 hypr-debug:
 	nix build ./#aquamarine

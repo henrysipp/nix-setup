@@ -19,6 +19,10 @@
     networkmanager.enable = true;
   };
 
+  home-manager = {
+    backupFileExtension = "backup"; # Creates files with a `.backup` extension
+  };
+
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     open = true;

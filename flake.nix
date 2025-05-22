@@ -89,6 +89,7 @@
         });
     };
 
+
     # format the nix code in this flake
     # alejandra is a nix formatter with a beautiful output
     formatter = nixpkgs.lib.genAttrs allSystems (
@@ -96,6 +97,7 @@
         nixpkgs.legacyPackages.${system}.alejandra
     );
   };
+  
 
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
