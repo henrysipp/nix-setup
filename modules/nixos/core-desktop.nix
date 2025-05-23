@@ -7,6 +7,11 @@
     ./core-apps.nix
   ];
 
+  # Gnome
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
   nixpkgs.config.allowUnfree = lib.mkForce true;
   boot.loader.systemd-boot.configurationLimit = lib.mkDefault 5;
   nix.settings = {
