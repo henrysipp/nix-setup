@@ -35,7 +35,14 @@
       };
 
       general = {
-        "$mainMod" = "SUPER";
+        "$modifier" = "SUPER";
+        layout = "dwindle";
+        gaps_in = 6;
+        gaps_out = 8;
+        border_size = 2;
+        resize_on_border = true;
+        "col.active_border" = "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0C}) 45deg";
+        "col.inactive_border" = "rgb(${config.lib.stylix.colors.base01})";
       };
 
       cursor = {
@@ -44,6 +51,12 @@
         enable_hyprcursor = false;
         warp_on_change_workspace = 2;
         no_warps = true;
+      };
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+        force_split = 2;
       };
 
       env = [
