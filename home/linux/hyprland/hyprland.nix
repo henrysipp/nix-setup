@@ -21,9 +21,8 @@
     };
     xwayland = {
       enable = true;
-      hidpi = true;
+      # hidpi = true;
     };
-    nvidiaPatches = true;
     settings = {
       exec-once = [
         "wl-paste --type text --watch cliphist store # Stores only text data"
@@ -47,6 +46,8 @@
       };
 
       "$modifier" = "SUPER";
+      "$mod" = "SUPER";
+
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
       "$menu" = "rofi -show drun";
@@ -79,7 +80,7 @@
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
-    };
+
 
     bind = [
       # General
@@ -150,5 +151,7 @@
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"
     ];
+    };
+
   };
 }
