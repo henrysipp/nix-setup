@@ -19,9 +19,6 @@
       enableXdgAutostart = true;
       variables = ["--all"];
     };
-    debug = {
-      disable_logs = false;
-    };
     xwayland = {enable = true;};
     settings = {
       exec-once = [
