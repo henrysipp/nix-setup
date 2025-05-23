@@ -1,4 +1,8 @@
-{ flake,pkgs, inputs, ... }:
 {
-  imports = [ inputs.self.homeModules.home-shared ];
+  flake,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [inputs.self.homeModules.home-shared];
 }

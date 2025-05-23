@@ -20,8 +20,12 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
-  
-  outputs = inputs: inputs.blueprint { inherit inputs; nixpkgs.config.allowUnfree = true; };
+
+  outputs = inputs:
+    inputs.blueprint {
+      inherit inputs;
+      nixpkgs.config.allowUnfree = true;
+    };
 
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];

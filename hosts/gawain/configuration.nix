@@ -1,10 +1,15 @@
 # Gawain
 # This is the configuration for my desktop gaming PC.
-{ flake, config, pkgs, inputs, ... }: 
 {
-  imports = [ 
+  flake,
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
     ./hardware-configuration.nix
-    # inputs.self.nixosModules.host-shared 
+    # inputs.self.nixosModules.host-shared
     inputs.self.nixosModules.desktop
     inputs.self.nixosModules.plasma
     # inputs.self.nixosModules.gnome
@@ -40,7 +45,7 @@
   };
 
   home-manager.users.henry = {
-    imports = [ inputs.self.homeModules.desktop ];
+    imports = [inputs.self.homeModules.desktop];
     config.home.stateVersion = "25.11";
   };
 

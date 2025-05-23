@@ -1,4 +1,8 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.vscode.enable = true;
 
   home.file = {
@@ -6,5 +10,4 @@
       source = config.lib.file.mkOutOfStoreSymlink ../../config/aerospace.toml;
     };
   };
-
 }

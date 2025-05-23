@@ -1,4 +1,10 @@
-{pkgs, inputs, lib, flake-inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  lib,
+  flake-inputs,
+  ...
+}: {
   imports = [
     ./common.nix
   ];
@@ -21,8 +27,8 @@
   # ];
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

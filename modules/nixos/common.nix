@@ -1,5 +1,9 @@
-{ flake, pkgs, inputs, ...}: {
-
+{
+  flake,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./henry.nix
     inputs.home-manager.nixosModules.default
