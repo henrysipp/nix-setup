@@ -45,6 +45,10 @@
         border_size = 2;
         resize_on_border = true;
       };
+      
+      "$terminal" = "kitty";
+      "$fileManager" = "dolphin";
+      "$menu" = "rofi -show drun";
 
       cursor = {
         sync_gsettings_theme = true;
