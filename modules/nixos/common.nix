@@ -31,12 +31,8 @@
   ];
 
   programs = {
-    firefox = {enable = true;};
-    steam = {
-      enable = true;
-    };
-    _1password-gui = {
-      enable = true;
-    };
+    firefox.enable = true;
+    steam.enable = true;
+    _1password-gui.enable = true;
   };
 }

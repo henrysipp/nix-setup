@@ -1,10 +1,11 @@
 {pkgs, ...}: {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = [
-    pkgs.neofetch
-    pkgs.fnm
-  ];
+  programs.vscode.enable = true;
+
+  home.file = {
+    ".aerospace.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink ../../config/aerospace.toml;
+    };
+  };
 
   # Add homebrew package management
   homebrew = {

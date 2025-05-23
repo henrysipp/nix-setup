@@ -7,9 +7,9 @@
     vlc
     zed-editor
     protonup-qt
-    vscode
     alacritty
     flameshot
+    vscode
     discord
   ];
 }

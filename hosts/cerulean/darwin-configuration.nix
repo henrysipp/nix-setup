@@ -1,22 +1,17 @@
-{username, ...}: let
-  hostname = "Henrys-MacBook-Pro";
-in {
+{...}: 
+{
   imports = [
-    ../../modules/darwin
-    # ../../secrets/darwin.nix
+    inputs.self.nixosModules.host-shared
+    inputs.self.darwinModules.darwin-desktop
   ];
 
-  # nixpkgs.overlays = import ../../overlays args;
+  nixpkgs.hostPlatform = "aarch64-darwin";
+  users.users.henry.home = /Users/henry;
 
-  networking.hostName = hostname;
-  networking.computerName = hostname;
-  # system.defaults.smb.NetBIOSName = hostname;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${username}" = {
-    home = "/Users/${username}";
-    description = username;
+  home-manager.users.henry = {
+    imports = [ inputs.self.homeModules.darwin-desktop ];
+    config.home.stateVersion = "25.11";
   };
 
-  nix.settings.trusted-users = [username];
+  system.stateVersion = 6;
 }
