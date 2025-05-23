@@ -3,11 +3,13 @@
   programs.vscode.enable = true;
 
   home.packages = with pkgs; [
-    # Graphical
-    slack
-    tdesktop # telegram desktop
-    termite
+    tdesktop
     vlc
     zed-editor
+    protonup-qt
+    vscode
+    alacritty
+    flameshot
+    discord
   ];
 }
