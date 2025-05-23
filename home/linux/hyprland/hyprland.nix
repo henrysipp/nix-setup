@@ -19,7 +19,8 @@
       enableXdgAutostart = true;
       variables = ["--all"];
     };
-    xwayland = {enable = true;};
+    xwayland = {enable = true; hidpi = true;};
+    nvidiaPatches = true;
     settings = {
       exec-once = [
         "wl-paste --type text --watch cliphist store # Stores only text data"
@@ -27,7 +28,7 @@
         "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user start hyprpolkitagent"
-        "killall -q waybar;sleep .5 && waybar"
+        # "killall -q waybar;sleep .5 && waybar"
       ];
       environment = {
         no_donation_nag = true;
