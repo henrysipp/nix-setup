@@ -24,6 +24,7 @@
   programs.lazygit.enable = true;
   programs.starship.enable = true;
   programs.zellij.enable = true;
+  programs.kitty.enable = true;
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;

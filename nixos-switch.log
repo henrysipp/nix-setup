@@ -1,25 +1,36 @@
 warning: Git tree '/home/henry/Developer/nix-setup' is dirty
 Using saved setting for 'experimental-features = nix-command flakes' from ~/.local/share/nix/trusted-settings.json.
-error:
-       … while calling the 'seq' builtin
-         at /nix/store/g3z13ffr1wzw8m9wivqyni2nbjl956wj-source/lib/modules.nix:359:18:
-          358|         options = checked options;
-          359|         config = checked (removeAttrs config [ "_module" ]);
-             |                  ^
-          360|         _module = checked (config._module);
-
-       … while calling the 'throw' builtin
-         at /nix/store/g3z13ffr1wzw8m9wivqyni2nbjl956wj-source/lib/modules.nix:331:13:
-          330|           else
-          331|             throw baseMsg
-             |             ^
-          332|         else
-
-       error: The option `home' does not exist. Definition values:
-       - In `/nix/store/y3mc5wc96qf0s2hv0l3j1y3nyfva4lj7-source/modules/nixos/hyprland/hyprland.nix':
-           {
-             packages = [
-               <derivation hyprpolkitagent-0.1.2>
-               <derivation hyprland-qtutils-0.1.4>
-             ];
-           ...
+building the system configuration...
+warning: Git tree '/home/henry/Developer/nix-setup' is dirty
+Using saved setting for 'experimental-features = nix-command flakes' from ~/.local/share/nix/trusted-settings.json.
+these 12 derivations will be built:
+  /nix/store/5cphr7vl3qvpxl914fz1f1ddp12hk7gq-home-manager-path.drv
+  /nix/store/bmxa99njlkdm2pc1fwr0rxj8n2fbhiwx-hm_kittykitty.conf.drv
+  /nix/store/ax5a264q1iygzyr561sx58nh0wk3yy3q-activation-script.drv
+  /nix/store/6jb05ygv4m5kb9hymbbr58xz0c5nd14z-hm_.zshrc.drv
+  /nix/store/p29rg8bpy4sh0g3wjph3k8bqnqvhw88r-hm_fontconfigconf.d10hmfonts.conf.drv
+  /nix/store/v032dpvnz2chghn7v94m1533aqlaw116-home-manager-files.drv
+  /nix/store/jmj7wcr8wdzj9r15sbxgq7kn249yzzwp-home-manager-generation.drv
+  /nix/store/rz1nc407rmyh5nvg1ahbz15i8j04ff7f-unit-home-manager-henry.service.drv
+  /nix/store/5m11ja15lj979g82xgkw8asfc173qxsz-system-units.drv
+  /nix/store/861sbsmj77sb1lf8p54jyc6a8awy4f78-user-environment.drv
+  /nix/store/9wbisvrlb2nr65694pcj0d7i3w58dz35-etc.drv
+  /nix/store/fk1rlfxjl269s2asvvybxch55bhmsaa4-nixos-system-gawain-25.11.20250517.3fcbdcf.drv
+building '/nix/store/5cphr7vl3qvpxl914fz1f1ddp12hk7gq-home-manager-path.drv'...
+building '/nix/store/6jb05ygv4m5kb9hymbbr58xz0c5nd14z-hm_.zshrc.drv'...
+building '/nix/store/bmxa99njlkdm2pc1fwr0rxj8n2fbhiwx-hm_kittykitty.conf.drv'...
+building '/nix/store/ax5a264q1iygzyr561sx58nh0wk3yy3q-activation-script.drv'...
+building '/nix/store/p29rg8bpy4sh0g3wjph3k8bqnqvhw88r-hm_fontconfigconf.d10hmfonts.conf.drv'...
+building '/nix/store/861sbsmj77sb1lf8p54jyc6a8awy4f78-user-environment.drv'...
+building '/nix/store/v032dpvnz2chghn7v94m1533aqlaw116-home-manager-files.drv'...
+building '/nix/store/jmj7wcr8wdzj9r15sbxgq7kn249yzzwp-home-manager-generation.drv'...
+building '/nix/store/rz1nc407rmyh5nvg1ahbz15i8j04ff7f-unit-home-manager-henry.service.drv'...
+building '/nix/store/5m11ja15lj979g82xgkw8asfc173qxsz-system-units.drv'...
+building '/nix/store/9wbisvrlb2nr65694pcj0d7i3w58dz35-etc.drv'...
+building '/nix/store/fk1rlfxjl269s2asvvybxch55bhmsaa4-nixos-system-gawain-25.11.20250517.3fcbdcf.drv'...
+activating the configuration...
+setting up /etc...
+reloading user units for henry...
+restarting sysinit-reactivation.target
+the following new units were started: NetworkManager-dispatcher.service
+Done. The new configuration is /nix/store/1phjkcmxxpwz6c0b761i3dsqjng75bj9-nixos-system-gawain-25.11.20250517.3fcbdcf
