@@ -6,7 +6,6 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [
     pkgs.neofetch
-    pkgs.fnm
   ];
 
   # Add homebrew package management
