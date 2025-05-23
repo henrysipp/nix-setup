@@ -5,6 +5,7 @@
     # inputs.self.nixosModules.host-shared 
     inputs.self.nixosModules.desktop
     inputs.self.nixosModules.plasma
+    # inputs.self.nixosModules.gnome
   ];
 
   # on nixos this either isNormalUser or isSystemUser is required to create the user.

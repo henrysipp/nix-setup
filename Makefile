@@ -8,11 +8,8 @@ nixos-debug:
 macos:
 	sudo darwin-rebuild switch --flake .#cerulean
 
-macos-upgrade:
-	sudo darwin-rebuild switch --flake .#cerulean --upgrade
-
-macos-install:
-	sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#cerulean
+macos-personal:
+	sudo darwin-rebuild switch --flake .#turquoise
 
 macos-debug: 
 	nix build ./#darwinConfigurations.cerulean.system --show-trace --verbose

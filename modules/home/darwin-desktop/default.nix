@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   programs.vscode.enable = true;
 
   home.file = {
@@ -7,39 +7,4 @@
     };
   };
 
-  # Add homebrew package management
-  homebrew = {
-    enable = true;
-    onActivation = {
-      autoUpdate = true;
-      cleanup = "uninstall"; # This makes homebrew declarative!
-      upgrade = true;
-    };
-    taps = [
-      # "nikitabobko/aerospace"
-      "tuist/tuist"
-    ];
-    brews = [
-      "sapling" # Looks like nix version is very outdated, mayhaps learn how to update and PR?
-      "tailscale"
-
-      "tuist/tuist/tuist@4.20.0"
-      "awscli"
-      "swiftformat"
-      "swiftlint"
-      "lefthook"
-    ];
-    casks = [
-      "1password"
-      "ghostty"
-      "docker"
-      "spotify"
-      "sublime-text"
-      "claude"
-      "jetbrains-toolbox"
-      "visual-studio-code"
-
-      "aerospace"
-    ];
-  };
 }
