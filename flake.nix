@@ -47,7 +47,7 @@
           ./hosts/aquamarine
           # ./modules/nixos/hyprland.nix
         ];
-        home-module = import ./home/linux/desktop-hyprland.nix;
+        home-module = import ./home/linux/desktop-gnome.nix;
       };
 
       system = x64_system;
