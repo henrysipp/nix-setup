@@ -1,4 +1,4 @@
-{username, ...} @ args: let
+{username, ...}: let
   hostname = "Henrys-MacBook-Pro";
 in {
   imports = [

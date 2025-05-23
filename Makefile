@@ -1,8 +1,8 @@
 
-hypr:
+nixos:
 	sudo nixos-rebuild switch --flake .#aquamarine
 
-hypr-debug:
+nixos-debug:
 	nix build ./#aquamarine
 
 macos:

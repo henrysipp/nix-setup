@@ -1,16 +1,7 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, inputs, lib, flake-inputs, ...}: {
   imports = [
-    ./core-apps.nix
+    ./common.nix
   ];
-
-  # Gnome
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   nixpkgs.config.allowUnfree = lib.mkForce true;
   boot.loader.systemd-boot.configurationLimit = lib.mkDefault 5;
@@ -19,11 +10,15 @@
   };
 
   environment.variables.EDITOR = "nvim";
-
   environment.shells = with pkgs; [
     bash
     zsh
   ];
+
+  # services.flatpak.enable = true;
+  # services.flatpak.packages = [
+  #   "net.davidotek.pupgui1"
+  # ];
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -33,7 +28,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,

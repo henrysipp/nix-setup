@@ -1,8 +1,11 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ flake, pkgs, inputs, ...}: {
+
+  imports = [
+    ./henry.nix
+    inputs.home-manager.nixosModules.default
+  ];
+
+  # nix-flatpak.nixosModules.nix-flatpak
   environment.systemPackages = with pkgs; [
     kitty
     vscode
@@ -18,6 +21,8 @@
     gnumake
     discord
   ];
+
+
 
   programs = {
     firefox = {enable = true;};
