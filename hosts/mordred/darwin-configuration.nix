@@ -1,3 +1,5 @@
+# Mordred
+# This is the configuration for my personal MacBook Pro
 {inputs, ...}: 
 {
   imports = [
@@ -9,6 +11,9 @@
   users.users.henrysipp.home = /Users/henrysipp;
   system.primaryUser = "henrysipp";
 
+  networking.hostName = "mordred";
+
+  home-manager.backupFileExtension = "backup";
   home-manager.users.henrysipp = {
     imports = [ inputs.self.homeModules.darwin-desktop ];
     config.home.stateVersion = "25.11";

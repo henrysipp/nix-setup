@@ -1,3 +1,5 @@
+# Gawain
+# This is the configuration for my desktop gaming PC.
 { flake, config, pkgs, inputs, ... }: 
 {
   imports = [ 
@@ -22,7 +24,7 @@
   };
 
   networking = {
-    hostName = "aquamarine";
+    hostName = "gawain";
     wireless.enable = false;
     networkmanager.enable = true;
   };

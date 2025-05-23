@@ -1,3 +1,5 @@
+# Albion
+# This is the configuration for my work Macbook Pro
 {inputs, ...}: 
 {
   imports = [
