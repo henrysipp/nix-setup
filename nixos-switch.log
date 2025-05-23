@@ -1,1 +1,3 @@
-/run/current-system/sw/bin/darwin-rebuild: unknown option '--switch'
+building the system configuration...
+warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring
+error: file 'darwin' was not found in the Nix search path (add it using $NIX_PATH or -I)
