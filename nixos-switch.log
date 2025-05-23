@@ -1,11 +1,25 @@
 warning: Git tree '/home/henry/Developer/nix-setup' is dirty
 Using saved setting for 'experimental-features = nix-command flakes' from ~/.local/share/nix/trusted-settings.json.
-building the system configuration...
-warning: Git tree '/home/henry/Developer/nix-setup' is dirty
-Using saved setting for 'experimental-features = nix-command flakes' from ~/.local/share/nix/trusted-settings.json.
-activating the configuration...
-setting up /etc...
-reloading user units for henry...
-restarting sysinit-reactivation.target
-the following new units were started: NetworkManager-dispatcher.service, sysinit-reactivation.target, systemd-tmpfiles-resetup.service
-Done. The new configuration is /nix/store/mx9m7yw0j968cppypa946sj13yn5sr6h-nixos-system-gawain-25.11.20250517.3fcbdcf
+error:
+       … while calling the 'seq' builtin
+         at /nix/store/g3z13ffr1wzw8m9wivqyni2nbjl956wj-source/lib/modules.nix:359:18:
+          358|         options = checked options;
+          359|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          360|         _module = checked (config._module);
+
+       … while calling the 'throw' builtin
+         at /nix/store/g3z13ffr1wzw8m9wivqyni2nbjl956wj-source/lib/modules.nix:331:13:
+          330|           else
+          331|             throw baseMsg
+             |             ^
+          332|         else
+
+       error: The option `home' does not exist. Definition values:
+       - In `/nix/store/y3mc5wc96qf0s2hv0l3j1y3nyfva4lj7-source/modules/nixos/hyprland/hyprland.nix':
+           {
+             packages = [
+               <derivation hyprpolkitagent-0.1.2>
+               <derivation hyprland-qtutils-0.1.4>
+             ];
+           ...
