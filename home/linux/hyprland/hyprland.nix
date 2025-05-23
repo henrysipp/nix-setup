@@ -38,9 +38,6 @@
         no_update_news = false;
       };
 
-      "$modifier" = "SUPER";
-      "$terminal" = "kitty";
-
       general = {
         layout = "dwindle";
         gaps_in = 6;
@@ -49,6 +46,7 @@
         resize_on_border = true;
       };
 
+      "$modifier" = "SUPER";
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
       "$menu" = "rofi -show drun";
