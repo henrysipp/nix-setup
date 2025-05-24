@@ -47,6 +47,7 @@
             "$terminal" = "alacritty";
             "$mod" = "SUPER";
             "$fileManager" = "dolphin";
+            "$&" = "override";
 
             monitor = [
                 "DP-1,3840x2160@239.99Hz,0x0,1.5" #,vrr,2"
@@ -62,23 +63,24 @@
             };
 
             decoration = {
-                active_opacity = .96 ;
-                inactive_opacity = 0.8; 
+                active_opacity = .95;
+                inactive_opacity = 0.75; 
                 fullscreen_opacity = 1;
-            #
-            #     shadow = {
-            #         enabled = true;
-            #         range = 4;
-            #         render_power = 3;
-            #         color = "rgba(1a1a1aee)";
-            #     };
-            #     blur = {
-            #         enabled = true;
-            #         special = true;
-            #         size = 3;
-            #         passes = 1;
-            #         vibrancy = 0.1696;
-            #     };
+                shadow = {
+                    enabled = true;
+                    range = 4;
+                    render_power = 3;
+                    # color = "rgba(1a1a1aee)";
+                };
+
+                blur = {
+                    enabled = true;
+                    special = true;
+                    new_optimizations = true;
+                    size = 3;
+                    passes = 1;
+                    vibrancy = 0.1696;
+                };
             };
 
 
@@ -150,12 +152,11 @@
                 # default_monitor = "DP-2";
             };
 
-            # windowrulev2 = [
-            #     # "float, class:^(ags|gjs).*$"
-            #     # "nofocus, class:^(ags|gjs).*$"
-            #     # "noborder, class:^(ags|gjs).*$"
-            #     # "noshadow, class:^(ags|gjs).*$"
-            # ];
+            windowrulev2 = [
+                # Ignore opacity for windows showing video
+                "opacity 1.0 $& 1.0 $& 1,title:^(.*(YouTube|Netflix|Vimeo|Discord).*)$"
+                "opacity 1.0 $& 0.90 $& 1,class:^([Cc]ode)$"
+            ];
 
             bind = [
                 # General
