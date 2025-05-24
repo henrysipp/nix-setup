@@ -1,11 +1,12 @@
 {pkgs, ...}: {
-    programs.hyprland.enable = true;
-    programs.hyprland.xwayland.enable = true;
-    programs.hyprland.package = pkgs.hyprland;
+    
+    programs.hyprland = {
 
-    programs.hyprland.withUWSM  = true;
-
-
+        enable = true;
+        xwayland.enable = true;
+        package = pkgs.hyprland;
+        withUWSM  = true;
+    };
     # environment.sessionVariables = {
     #     WLR_NO_HARDWARE_CURSORS = "1";
     #     NIXOS_OZONE_WL = "1";
@@ -15,4 +16,8 @@
         pkgs.kitty
         pkgs.wofi
     ];
-}
+
+    # wayland.windowManager.hyprland.settings = {
+    #     "$mod" = "SUPER";
+    # };
+} 

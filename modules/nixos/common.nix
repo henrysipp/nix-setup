@@ -32,6 +32,7 @@
     neofetch
     gh
     gnumake
+
   ];
 
   programs = {
