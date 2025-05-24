@@ -24,6 +24,15 @@
         };
     };
 
+    services.hyprpaper = {
+        enable = true;
+        settings = {
+            wallpapers = [
+                "DP-1,Pictures/Wallpapers/leaf.png"
+            ];
+        };
+    };
+
     programs.ags = {
         enable = true;
         configDir = ../../ags;

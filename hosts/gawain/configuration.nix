@@ -51,7 +51,6 @@
     config.home.stateVersion = "25.11";
   };
 
-  stylix.image = ../../config/wallpaper/leaf.png;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
