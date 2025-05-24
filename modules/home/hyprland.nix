@@ -88,10 +88,14 @@
                 "__GLX_VENDOR_LIBRARY_NAME,nvidia"
                 "XCURSOR_THEME,Bibata-Modern-Classic"
                 "XCURSOR_SIZE,23"
+                "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+                "HYPRCURSOR_SIZE,23"
             ];
        
         
             exec-once = [
+                "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Original-Classic'"
+                "gsettings set org.gnome.desktop.interface cursor-size 24"
                 "hyprctl setcursor Bibata-Modern-Classic 23"
             ];
 
