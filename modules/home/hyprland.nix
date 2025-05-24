@@ -9,12 +9,6 @@
         pkgs.wofi
         pkgs.wl-clipboard
         pkgs.bibata-cursors
-        perSystem.ags.io
-        perSystem.ags.notifd
-        perSystem.ags.hyprland
-        perSystem.ags.tray
-        perSystem.ags.network
-        perSystem.ags.wireplumber
     ];
 
     # home.programs.ags.enable = true;
@@ -22,11 +16,18 @@
     programs.ags = {
         enable = true;
         configDir = ../../ags;
-        # extraPackages = with pkgs; [
-        #     gtksourceview
-        #     webkitgtk
-        #     accountsservice
-        # ];
+        extraPackages = with pkgs; [
+            gtksourceview
+            webkitgtk
+            accountsservice
+
+        perSystem.ags.io
+        perSystem.ags.notifd
+        perSystem.ags.hyprland
+        perSystem.ags.tray
+        perSystem.ags.network
+        perSystem.ags.wireplumber
+        ];
     };
 
     wayland.windowManager.hyprland = {
