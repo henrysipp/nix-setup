@@ -115,7 +115,7 @@
                 "float, class:^(ags)$"
                 "nofocus, class:^(ags)$"
                 "noborder, class:^(ags)$"
-                "oshadow, class:^(ags)$"
+                "noshadow, class:^(ags)$"
             ];
 
             bind = [
