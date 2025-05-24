@@ -96,6 +96,7 @@
                 "$mod, v, togglefloating"
                 "$mod, u, focusurgentorlast"
                 "$mod, tab, focuscurrentorlast"
+                "$mod SHIFT, J, togglesplit"
                 "shift, F11, fullscreen"
 
                 # Screen resize
