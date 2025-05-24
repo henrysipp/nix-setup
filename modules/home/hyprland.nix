@@ -28,7 +28,7 @@
         enable = true;
         settings = {
             wallpapers = [
-                "DP-1,Pictures/Wallpapers/leaf.png"
+                "DP-1,~/Pictures/Wallpapers/leaf.png"
             ];
         };
     };
