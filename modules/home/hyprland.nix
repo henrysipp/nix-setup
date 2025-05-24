@@ -63,8 +63,8 @@
             };
 
             decoration = {
-                active_opacity = .95;
-                inactive_opacity = 0.75; 
+                active_opacity = .85;
+                inactive_opacity = 0.65; 
                 fullscreen_opacity = 1;
                 shadow = {
                     enabled = true;
@@ -77,7 +77,7 @@
                     enabled = true;
                     special = true;
                     new_optimizations = true;
-                    size = 3;
+                    size = 8;
                     passes = 1;
                     vibrancy = 0.1696;
                 };
@@ -156,7 +156,14 @@
                 # Ignore opacity for windows showing video
                 "opacity 1.0 $& 1.0 $& 1,title:^(.*(YouTube|Netflix|Vimeo|Discord).*)$"
                 "opacity 1.0 $& 0.90 $& 1,class:^([Cc]ode)$"
-            ];
+
+                "tag +games, class:^(steam_app_\d+)$"            
+
+
+                "float, tag:settings*"
+                "noblur, tag:games*"
+                "fullscreen, tag:games*"
+        ];
 
             bind = [
                 # General
