@@ -49,27 +49,27 @@
                 layout = "dwindle";
             };
 
-            decoration = {
-                rounding = 0;
-                rounding_power = 2;
-                active_opacity = 1 ;
-                inactive_opacity = 1; 
-                fullscreen_opacity = 1;
-
-                shadow = {
-                    enabled = true;
-                    range = 4;
-                    render_power = 3;
-                    color = "rgba(1a1a1aee)";
-                };
-                blur = {
-                    enabled = true;
-                    special = true;
-                    size = 3;
-                    passes = 1;
-                    vibrancy = 0.1696;
-                };
-            };
+            # decoration = {
+            #     rounding = 0;
+            #     rounding_power = 2;
+            #     active_opacity = 1 ;
+            #     inactive_opacity = 1; 
+            #     fullscreen_opacity = 1;
+            #
+            #     shadow = {
+            #         enabled = true;
+            #         range = 4;
+            #         render_power = 3;
+            #         color = "rgba(1a1a1aee)";
+            #     };
+            #     blur = {
+            #         enabled = true;
+            #         special = true;
+            #         size = 3;
+            #         passes = 1;
+            #         vibrancy = 0.1696;
+            #     };
+            # };
 
 
             env = [
@@ -136,12 +136,12 @@
                 # default_monitor = "DP-2";
             };
 
-            windowrulev2 = [
-                # "float, class:^(ags|gjs).*$"
-                # "nofocus, class:^(ags|gjs).*$"
-                # "noborder, class:^(ags|gjs).*$"
-                # "noshadow, class:^(ags|gjs).*$"
-            ];
+            # windowrulev2 = [
+            #     # "float, class:^(ags|gjs).*$"
+            #     # "nofocus, class:^(ags|gjs).*$"
+            #     # "noborder, class:^(ags|gjs).*$"
+            #     # "noshadow, class:^(ags|gjs).*$"
+            # ];
 
             bind = [
                 # General
@@ -157,7 +157,7 @@
                 "$mod, v, togglefloating"
                 "$mod, u, focusurgentorlast"
                 "$mod, tab, focuscurrentorlast"
-                "$mod, j, togglesplit"
+                "$mod SHIFT, j, togglesplit"
                 "shift, F11, fullscreen"
 
                 # Screen resize
@@ -197,7 +197,7 @@
                 # "$mod, j, movefocus, d"
 
                 # Applications
-                "$mod ALT, f, exec, ${pkgs.firefox}/bin/firefox"
+                # "$mod ALT, f, exec, ${pkgs.firefox}/bin/firefox"
                 #"$mod ALT, e, exec, $terminal --hold -e ${pkgs.yazi}/bin/yazi"
                 #"$mod ALT, o, exec, ${pkgs.obsidian}/bin/obsidian"
                 #"$mod, r, exec, pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
