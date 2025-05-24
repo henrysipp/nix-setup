@@ -8,8 +8,9 @@
 
     wayland.windowManager.hyprland = {
         enable = true;
-        xwayland.enable = true;
         systemd.enable = true;
+        xwayland.enable = true;
+        # xwayland.force_zero_scaling = true;
 
         settings = {
             "$terminal" = "alacritty";
@@ -26,6 +27,21 @@
                 border_size = 2;
                 layout = "dwindle";
             };
+
+            env = [
+                "NIXOS_OZONE_WL,1"
+                "_JAVA_AWT_WM_NONREPARENTING,1"
+                "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+                "QT_QPA_PLATFORM,wayland"
+                "SDL_VIDEODRIVER,wayland"
+                "GDK_BACKEND,wayland"
+                "LIBVA_DRIVER_NAME,nvidia"
+                "XDG_SESSION_TYPE,wayland"
+                "XDG_SESSION_DESKTOP,Hyprland"
+                "XDG_CURRENT_DESKTOP,Hyprland"
+                # "GBM_BACKEND,nvidia-drm"
+                "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+            ];
 
             input = {
                 kb_layout = "us";
