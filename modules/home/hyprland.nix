@@ -17,7 +17,12 @@
         pkgs.kdePackages.kio-extras
     ];
 
-    # home.programs.ags.enable = true;
+    home.file = {
+        "Pictures/Wallpapers" = {
+            source = ../../config/wallpaper;
+            recursive = true;
+        };
+    };
 
     programs.ags = {
         enable = true;
