@@ -21,6 +21,25 @@
     zsh
   ];
 
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
+      fira-code
+      fira-code-symbols
+      nerd-fonts.fira-code
+    ];
+    
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [ "FiraCode Nerd Font" ];
+      };
+    };
+  };
+
   # services.flatpak.enable = true;
   # services.flatpak.packages = [
   #   "net.davidotek.pupgui1"
