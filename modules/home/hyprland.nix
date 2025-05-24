@@ -44,8 +44,28 @@
                 gaps_in = 8;
                 gaps_out = 8;
                 border_size = 2;
+                resize_on_border = true;
+                allow_tearing = false;
                 layout = "dwindle";
             };
+
+            decoration = {
+                rounding = 0;
+                shadow = {
+                    enabled = true;
+                    range = 4;
+                    render_power = 3;
+                    color = "rgba(1a1a1aee)";
+                };
+                blur = {
+                    enabled = true;
+                    special = true;
+                    size = 3;
+                    passes = 1;
+                    vibrancy = 0.1696;
+                };
+            };
+
 
             env = [
                 "NIXOS_OZONE_WL,1"
