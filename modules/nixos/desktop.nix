@@ -3,8 +3,10 @@
   inputs,
   lib,
   flake-inputs,
+  host,
   ...
-}: {
+}: let 
+in{
   imports = [
     ./common.nix
     inputs.stylix.nixosModules.stylix
@@ -21,6 +23,18 @@
     bash
     zsh
   ];
+
+  stylix = {
+    enable = true;
+    polarity = "light";
+
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
+
+  };
 
   fonts = {
     packages = with pkgs; [

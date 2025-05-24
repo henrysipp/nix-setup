@@ -21,6 +21,7 @@
   #   userEmail = useremail;
   # };
 
+
   programs.lazygit.enable = true;
   programs.starship.enable = true;
   programs.zellij.enable = true;
