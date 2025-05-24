@@ -112,10 +112,10 @@
             };
 
             windowrule = [
-                "float, class:^(ags)$"
-                "nofocus, class:^(ags)$"
-                "noborder, class:^(ags)$"
-                "noshadow, class:^(ags)$"
+                "float, class:^(ags|gjs).*$"
+                "nofocus, class:^(ags|gjs).*$"
+                "noborder, class:^(ags|gjs).*$"
+                "noshadow, class:^(ags|gjs).*$"
             ];
 
             bind = [
