@@ -16,10 +16,21 @@
             "$mod" = "SUPER";
             "$fileManager" = "dolphin";
 
+            monitor = [
+                "DP-1,3840x2160@239.99Hz,0x0,1.25,vrr,2"
+            ];
+
+            general = {
+                gaps_in = 8;
+                gaps_out = 8;
+                border_size = 2;
+                layout = "dwindle";
+            };
+
             input = {
                 kb_layout = "us";
                 follow_mouse = true;
-                accel_proofile = "flat";
+                accel_profile = "flat";
             };
 
             bind = [
@@ -27,21 +38,15 @@
                 "$mod, W, killactive"
                 "$mod, Return, exec, $terminal"
                 "$mod, E, exec, $fileManager"
-                "$mod, V, togglefloating"
                 "$mod SHIFT, e, exit"
                 "$mod SHIFT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
 
-                # bind = $mainMod, L, exec, $HOME/.config/waybar/launch.sh"
-                # bind = $mainMod, P, pseudo" # dwindle
-                # bind = $mainMod, J, togglesplit" # dwindle
-                # bind = $mainMod, Space, exec, $menu"
-                # bind = shift, F11, fullscreen"
 
                 # Screen focus
                 "$mod, v, togglefloating"
                 "$mod, u, focusurgentorlast"
                 "$mod, tab, focuscurrentorlast"
-                "$mod, f, fullscreen"
+                "shift, F11, fullscreen"
 
                 # Screen resize
                 "$mod CTRL, h, resizeactive, -20 0"
@@ -81,18 +86,18 @@
 
                 # Applications
                 "$mod ALT, f, exec, ${pkgs.firefox}/bin/firefox"
-                "$mod ALT, e, exec, $terminal --hold -e ${pkgs.yazi}/bin/yazi"
-                "$mod ALT, o, exec, ${pkgs.obsidian}/bin/obsidian"
-                "$mod, r, exec, pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
-                "$mod ALT, r, exec, pkill anyrun || ${pkgs.anyrun}/bin/anyrun"
-                "$mod ALT, n, exec, swaync-client -t -sw"
+                #"$mod ALT, e, exec, $terminal --hold -e ${pkgs.yazi}/bin/yazi"
+                #"$mod ALT, o, exec, ${pkgs.obsidian}/bin/obsidian"
+                #"$mod, r, exec, pkill fuzzel || ${pkgs.fuzzel}/bin/fuzzel"
+                #"$mod ALT, r, exec, pkill anyrun || ${pkgs.anyrun}/bin/anyrun"
+                #"$mod ALT, n, exec, swaync-client -t -sw"
 
                 # Clipboard
                 "$mod ALT, v, exec, pkill fuzzel || cliphist list | fuzzel --no-fuzzy --dmenu | cliphist decode | wl-copy"
 
                 # Screencapture
-                "$mod, S, exec, ${pkgs.grim}/bin/grim | wl-copy"
-                "$mod SHIFT+ALT, S, exec, ${pkgs.grim}/bin/grim -g \"$(slurp)\" - | ${pkgs.swappy}/bin/swappy -f -"
+                # "$mod, S, exec, ${pkgs.grim}/bin/grim | wl-copy"
+                # "$mod SHIFT+ALT, S, exec, ${pkgs.grim}/bin/grim -g \"$(slurp)\" - | ${pkgs.swappy}/bin/swappy -f -"
             ];
 
             bindm = [
