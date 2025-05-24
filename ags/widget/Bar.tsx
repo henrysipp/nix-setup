@@ -13,7 +13,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         gdkmonitor={gdkmonitor}
         exclusivity={Astal.Exclusivity.IGNORE}
         anchor={TOP | LEFT | RIGHT}
-        layer={Astal.Layer.Overlay}
+        layer={Astal.Layer.TOP}
         application={App}>
         <centerbox cssName="centerbox">
             <button

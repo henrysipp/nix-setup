@@ -136,10 +136,10 @@
                 "shift, F11, fullscreen"
 
                 # Screen resize
-                "$mod CTRL, h, resizeactive, -20 0"
-                "$mod CTRL, l, resizeactive, 20 0"
-                "$mod CTRL, k, resizeactive, 0 -20"
-                "$mod CTRL, j, resizeactive, 0 20"
+                # "$mod CTRL, h, resizeactive, -20 0"
+                # "$mod CTRL, l, resizeactive, 20 0"
+                # "$mod CTRL, k, resizeactive, 0 -20"
+                # "$mod CTRL, j, resizeactive, 0 20"
 
                 # Workspaces
                 "$mod, 1, workspace, 1"
@@ -166,10 +166,10 @@
                 "$mod SHIFT, 0, movetoworkspace,10"
 
                 # Navigation
-                "$mod, h, movefocus, l"
-                "$mod, l, movefocus, r"
-                "$mod, k, movefocus, u"
-                "$mod, j, movefocus, d"
+                # "$mod, h, movefocus, l"
+                # "$mod, l, movefocus, r"
+                # "$mod, k, movefocus, u"
+                # "$mod, j, movefocus, d"
 
                 # Applications
                 "$mod ALT, f, exec, ${pkgs.firefox}/bin/firefox"
