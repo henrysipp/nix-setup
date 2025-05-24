@@ -9,6 +9,9 @@
         pkgs.wofi
         pkgs.wl-clipboard
         pkgs.bibata-cursors
+        pkgs.hyprpaper
+
+        pkgs.kdePackages.dolphin
     ];
 
     # home.programs.ags.enable = true;
@@ -21,12 +24,12 @@
             webkitgtk
             accountsservice
 
-        perSystem.ags.io
-        perSystem.ags.notifd
-        perSystem.ags.hyprland
-        perSystem.ags.tray
-        perSystem.ags.network
-        perSystem.ags.wireplumber
+            perSystem.ags.io
+            perSystem.ags.notifd
+            perSystem.ags.hyprland
+            perSystem.ags.tray
+            perSystem.ags.network
+            perSystem.ags.wireplumber
         ];
     };
 
