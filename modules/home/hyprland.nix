@@ -54,19 +54,17 @@
 
             general = {
                 gaps_in = 8;
-                gaps_out = 8;
+                gaps_out = 16;
                 border_size = 2;
                 resize_on_border = true;
                 allow_tearing = false;
                 layout = "dwindle";
             };
 
-            # decoration = {
-            #     rounding = 0;
-            #     rounding_power = 2;
-            #     active_opacity = 1 ;
-            #     inactive_opacity = 1; 
-            #     fullscreen_opacity = 1;
+            decoration = {
+                active_opacity = 1 ;
+                inactive_opacity = 1; 
+                fullscreen_opacity = 1;
             #
             #     shadow = {
             #         enabled = true;
@@ -81,7 +79,7 @@
             #         passes = 1;
             #         vibrancy = 0.1696;
             #     };
-            # };
+            };
 
 
             env = [
