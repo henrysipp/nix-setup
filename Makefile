@@ -1,4 +1,7 @@
 
+update: 
+	sudo nix flake update
+	
 nixos:
 	sudo nixos-rebuild switch --flake .#aquamarine
 
