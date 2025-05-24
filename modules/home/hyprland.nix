@@ -12,6 +12,9 @@
         pkgs.hyprpaper
 
         pkgs.kdePackages.dolphin
+        pkgs.kdePackages.qtsvg
+        pkgs.kdePackages.kio-fuse
+        pkgs.kdePackages.kio-extras
     ];
 
     # home.programs.ags.enable = true;
