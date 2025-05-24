@@ -32,6 +32,7 @@
         # xwayland.force_zero_scaling = true;
        
         settings = {
+	    debug.disable_logs = false;
             "$terminal" = "alacritty";
             "$mod" = "SUPER";
             "$fileManager" = "dolphin";
