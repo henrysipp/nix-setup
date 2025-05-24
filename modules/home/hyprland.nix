@@ -38,6 +38,7 @@
                 "$mod, W, killactive"
                 "$mod, Return, exec, $terminal"
                 "$mod, E, exec, $fileManager"
+                "$mod, R, exec, wofi --show drun"
                 "$mod SHIFT, e, exit"
                 "$mod SHIFT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
 
