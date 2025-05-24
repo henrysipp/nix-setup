@@ -62,8 +62,8 @@
             };
 
             decoration = {
-                active_opacity = 1 ;
-                inactive_opacity = 1; 
+                active_opacity = .96 ;
+                inactive_opacity = 0.8; 
                 fullscreen_opacity = 1;
             #
             #     shadow = {
