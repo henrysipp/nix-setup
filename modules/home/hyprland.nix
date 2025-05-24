@@ -12,7 +12,7 @@
         systemd.enable = true;
         # xwayland.enable = true;
         # xwayland.force_zero_scaling = true;
-
+       
         settings = {
             "$terminal" = "alacritty";
             "$mod" = "SUPER";
@@ -42,6 +42,13 @@
                 "XDG_CURRENT_DESKTOP,Hyprland"
                 # "GBM_BACKEND,nvidia-drm"
                 "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+                "XCURSOR_THEME,Bibata-Modern-Classic"
+                "XCURSOR_SIZE,23"
+            ];
+       
+        
+            exec-once = [
+                "hyprctl setcursor Bibata-Modern-Classic 23"
             ];
 
             input = {
@@ -80,7 +87,10 @@
             };
 
             cursor = {
-                enable_hyprcursor = true;
+                no_hardware_cursors = false;
+                # enable_hyprcursor = true;
+                # You can also set size here
+                # default_monitor = "DP-2";
             };
 
             bind = [
