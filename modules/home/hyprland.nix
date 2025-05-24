@@ -11,6 +11,10 @@
         pkgs.bibata-cursors
         perSystem.ags.io
         perSystem.ags.notifd
+        perSystem.ags.hyprland
+        perSystem.ags.tray
+        perSystem.ags.network
+        perSystem.ags.wireplumber
     ];
 
     # home.programs.ags.enable = true;
