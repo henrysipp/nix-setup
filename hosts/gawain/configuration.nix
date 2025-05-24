@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     # inputs.self.nixosModules.host-shared
     inputs.self.nixosModules.desktop
-    inputs.self.nixosModules.hyprland
+    # inputs.self.nixosModules.hyprland
     # inputs.self.nixosModules.gnome
   ];
 
@@ -44,6 +44,8 @@
     powerManagement.enable = true;
   };
 
+
+  home-manager.backupFileExtension = "backup";
   home-manager.users.henry = {
     imports = [inputs.self.homeModules.desktop];
     config.home.stateVersion = "25.11";
