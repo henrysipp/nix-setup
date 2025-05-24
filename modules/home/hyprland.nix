@@ -27,6 +27,9 @@
     services.hyprpaper = {
         enable = true;
         settings = {
+            preload = [
+                "~/Pictures/Wallpapers/leaf.png"
+            ];
             wallpapers = [
                 "DP-1,~/Pictures/Wallpapers/leaf.png"
             ];
@@ -87,14 +90,14 @@
                     # color = "rgba(1a1a1aee)";
                 };
 
-                blur = {
-                    enabled = true;
-                    special = true;
-                    new_optimizations = true;
-                    size = 8;
-                    passes = 1;
-                    vibrancy = 0.1696;
-                };
+                # blur = {
+                #     enabled = true;
+                #     special = true;
+                #     new_optimizations = true;
+                #     size = 8;
+                #     passes = 1;
+                #     vibrancy = 0.1696;
+                # };
             };
 
 

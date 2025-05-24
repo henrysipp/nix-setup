@@ -9,7 +9,6 @@
 in{
   imports = [
     ./common.nix
-    # inputs.stylix.nixosModules.stylix
   ];
 
   nixpkgs.config.allowUnfree = lib.mkForce true;

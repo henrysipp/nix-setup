@@ -11,8 +11,6 @@
     ./hardware-configuration.nix
     # inputs.self.nixosModules.host-shared
     inputs.self.nixosModules.desktop
-    # inputs.self.nixosModules.hyprland
-    # inputs.self.nixosModules.gnome
   ];
 
   # on nixos this either isNormalUser or isSystemUser is required to create the user.
