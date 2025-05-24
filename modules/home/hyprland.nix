@@ -112,10 +112,10 @@
             };
 
             windowrule = [
-                "windowrulev2 = float, class:^(ags)$"
-                "windowrulev2 = nofocus, class:^(ags)$"
-                "windowrulev2 = noborder, class:^(ags)$"
-                "windowrulev2 = noshadow, class:^(ags)$"
+                "float, class:^(ags)$"
+                "nofocus, class:^(ags)$"
+                "noborder, class:^(ags)$"
+                "oshadow, class:^(ags)$"
             ];
 
             bind = [
