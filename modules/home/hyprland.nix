@@ -111,6 +111,13 @@
                 # default_monitor = "DP-2";
             };
 
+            windowrule = [
+                "windowrulev2 = float, class:^(ags)$"
+                "windowrulev2 = nofocus, class:^(ags)$"
+                "windowrulev2 = noborder, class:^(ags)$"
+                "windowrulev2 = noshadow, class:^(ags)$"
+            ];
+
             bind = [
                 # General
                 "$mod, W, killactive"
