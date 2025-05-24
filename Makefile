@@ -3,7 +3,7 @@ update:
 	sudo nix flake update
 	
 nixos:
-	sudo nixos-rebuild switch --flake .#aquamarine
+	sudo nixos-rebuild switch --flake .
 
 nixos-debug:
 	nix build ./#aquamarine

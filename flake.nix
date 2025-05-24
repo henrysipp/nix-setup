@@ -20,6 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    ags = {
+      url = "github:Aylur/ags";
+      # nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:

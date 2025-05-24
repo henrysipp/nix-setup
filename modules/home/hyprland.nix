@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{pkgs,inputs, ...}: {
+
+    imports = [
+        inputs.ags.homeManagerModules.default
+    ];
 
     home.packages = [
         pkgs.kitty
@@ -6,6 +10,18 @@
         pkgs.wl-clipboard
         pkgs.bibata-cursors
     ];
+
+    # home.programs.ags.enable = true;
+
+    programs.ags = {
+        enable = true;
+        configDir = ../../ags;
+        # extraPackages = with pkgs; [
+        #     gtksourceview
+        #     webkitgtk
+        #     accountsservice
+        # ];
+    };
 
     wayland.windowManager.hyprland = {
         enable = true;
