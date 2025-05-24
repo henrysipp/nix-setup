@@ -19,7 +19,7 @@
             "$fileManager" = "dolphin";
 
             monitor = [
-                "DP-1,3840x2160@239.99Hz,0x0,1.5,vrr,2"
+                "DP-1,3840x2160@239.99Hz,0x0,1.5" #,vrr,2"
             ];
 
             general = {
