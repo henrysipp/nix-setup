@@ -4,6 +4,7 @@
         pkgs.kitty
         pkgs.wofi
         pkgs.wl-clipboard
+        pkgs.bibata-cursors
     ];
 
     wayland.windowManager.hyprland = {
