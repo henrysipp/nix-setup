@@ -1,4 +1,4 @@
-{pkgs,inputs, ...}: {
+{pkgs, inputs, perSystem, ...}: {
 
     imports = [
         inputs.ags.homeManagerModules.default
@@ -9,6 +9,8 @@
         pkgs.wofi
         pkgs.wl-clipboard
         pkgs.bibata-cursors
+        perSystem.ags.io
+        perSystem.ags.notifd
     ];
 
     # home.programs.ags.enable = true;
