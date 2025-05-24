@@ -1,6 +1,7 @@
 #set -e
 #pushd ~/Developer/nix-setup
 
+git add -A
 alejandra . &>/dev/null
 git diff -U0 *.nix
 

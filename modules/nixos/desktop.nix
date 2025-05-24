@@ -26,12 +26,18 @@ in{
 
   stylix = {
     enable = true;
-    polarity = "light";
+
+    // What algorithm we use for extracting colors from wall
+    polarity = "dark";
 
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
       size = 24;
+    };
+
+    targets = {
+
     };
 
   };
