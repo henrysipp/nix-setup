@@ -5,8 +5,7 @@
   flake-inputs,
   host,
   ...
-}: let 
-in{
+}: {
   imports = [
     ./common.nix
   ];
@@ -31,13 +30,13 @@ in{
       fira-code-symbols
       nerd-fonts.fira-code
     ];
-    
+
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = [ "Noto Serif" ];
-        sansSerif = [ "Noto Sans" ];
-        monospace = [ "FiraCode Nerd Font" ];
+        serif = ["Noto Serif"];
+        sansSerif = ["Noto Sans"];
+        monospace = ["FiraCode Nerd Font"];
       };
     };
   };
@@ -46,7 +45,6 @@ in{
   # services.flatpak.packages = [
   #   "net.davidotek.pupgui1"
   # ];
-
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
@@ -62,5 +60,4 @@ in{
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
 }

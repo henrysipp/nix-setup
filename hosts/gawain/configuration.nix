@@ -43,13 +43,11 @@
     powerManagement.enable = true;
   };
 
-
   home-manager.backupFileExtension = "backup";
   home-manager.users.henry = {
     # imports = [inputs.self.homeModules.desktop];
     config.home.stateVersion = "25.11";
   };
-
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
