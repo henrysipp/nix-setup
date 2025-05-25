@@ -21,14 +21,6 @@
   #   userEmail = useremail;
   # };
 
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata Modern Ice";
-    };
-  };
-
   programs.lazygit.enable = true;
   programs.starship.enable = true;
   programs.zellij.enable = true;
