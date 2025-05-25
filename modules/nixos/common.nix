@@ -32,11 +32,17 @@
     neofetch
     gh
     gnumake
+    alejandra
   ];
 
   programs = {
     firefox.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
     _1password-gui.enable = true;
     dconf.enable = true;
   };
