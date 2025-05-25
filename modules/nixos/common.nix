@@ -41,4 +41,16 @@
     _1password-gui.enable = true;
     dconf.enable = true;
   };
+
+      # gtk = {
+    #     enable = true;
+    #     cursorTheme = {
+
+    #     };
+    # };
+
+  environment.variables = {
+    XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "23";
+  };
 }

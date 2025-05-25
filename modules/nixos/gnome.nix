@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   services.xserver = {
     enable = true;
     xkb.layout = "us";
@@ -9,4 +9,8 @@
   # Disable indexing service to save power
   services.gnome.localsearch.enable = false;
   services.libinput.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    gnome-tweaks
+  ];
 }
