@@ -11,6 +11,8 @@
         pkgs.bibata-cursors
         pkgs.hyprpaper
 
+        pkgs.catppuccin-gtk
+
         pkgs.kdePackages.dolphin
         pkgs.kdePackages.qtsvg
         pkgs.kdePackages.kio-fuse
@@ -30,7 +32,7 @@
             preload = [
                 "~/Pictures/Wallpapers/leaf.png"
             ];
-            wallpapers = [
+            wallpaper = [
                 "DP-1,~/Pictures/Wallpapers/leaf.png"
             ];
         };
@@ -51,6 +53,25 @@
             perSystem.ags.network
             perSystem.ags.wireplumber
         ];
+    };
+
+    # services.dbus.enable = true;
+    gtk = {
+        # enable = true;
+        theme = {
+            name = "Adwaita-dark";
+            package = pkgs.gnome.gnome-themes-extra;
+        };
+        # gtk3.extraConfig = {
+        #     Settings = ''
+        #         gtk-application-prefer-dark-theme=1
+        #     '';
+        # };
+        # gtk4.extraConfig = {
+        #     Settings = ''
+        #         gtk-application-prefer-dark-theme=1
+        #     '';
+        # };
     };
 
     wayland.windowManager.hyprland = {
@@ -177,10 +198,15 @@
                 "tag +games, class:^(steam_app_\d+)$"            
 
 
+                "workspace 2, class:^(discord)$"
+                "workspace 2, class:^(org.telegram.desktop)$"
+                "workspace 3, class:^(steam)$"
+
                 "float, tag:settings*"
                 "noblur, tag:games*"
                 "fullscreen, tag:games*"
-        ];
+                "workspace special, tag:games*" #class:^(.*(The Legend of Heroes).*$
+            ];
 
             bind = [
                 # General
@@ -228,6 +254,11 @@
                 "$mod SHIFT, 8, movetoworkspace,8"
                 "$mod SHIFT, 9, movetoworkspace,9"
                 "$mod SHIFT, 0, movetoworkspace,10"
+
+                # Special workspac3
+                "$mod, S, togglespecialworkspace, magic"
+                "$mod SHIFT, S, movetoworkspace, special:magic"
+
 
                 # Navigation
                 # "$mod, h, movefocus, l"

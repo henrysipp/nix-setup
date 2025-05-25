@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     # inputs.self.nixosModules.host-shared
     inputs.self.nixosModules.desktop
+    inputs.self.nixosModules.gnome
   ];
 
   # on nixos this either isNormalUser or isSystemUser is required to create the user.
@@ -45,7 +46,7 @@
 
   home-manager.backupFileExtension = "backup";
   home-manager.users.henry = {
-    imports = [inputs.self.homeModules.desktop];
+    # imports = [inputs.self.homeModules.desktop];
     config.home.stateVersion = "25.11";
   };
 

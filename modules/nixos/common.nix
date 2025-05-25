@@ -39,5 +39,6 @@
     firefox.enable = true;
     steam.enable = true;
     _1password-gui.enable = true;
+    dconf.enable = true;
   };
 }

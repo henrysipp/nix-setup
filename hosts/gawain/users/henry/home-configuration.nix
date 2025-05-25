@@ -6,6 +6,6 @@
 }: {
   imports = [
     inputs.self.homeModules.home-shared
-    inputs.self.homeModules.hyprland
+    # inputs.self.homeModules.lhyprland
   ];
 }

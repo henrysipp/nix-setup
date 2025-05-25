@@ -47,6 +47,7 @@ in{
   #   "net.davidotek.pupgui1"
   # ];
 
+
   # Enable sound with pipewire.
   security.rtkit.enable = true;
   services.pulseaudio.enable = false;
