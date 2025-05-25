@@ -38,6 +38,44 @@ Each host imports shared modules from the `modules/` directory:
 - **NixOS hosts** use `nixosModules.desktop` and desktop environment modules
 - Home Manager configurations are tailored per platform (`darwin-desktop` vs `desktop`)
 
+### Import Hierarchy (Gawain Example)
+
+```
+flake.nix
+└── gawain system configuration
+    └── hosts/gawain/configuration.nix
+        ├── hardware-configuration.nix
+        ├── nixosModules.desktop-common
+        ├── nixosModules.gnome
+        └── home-manager.users.henry
+            └── homeModules.gnome
+```
+
+Key module directories:
+- `modules/core/` - Base system packages, fonts, network, services
+- `modules/nixos/` - NixOS-specific desktop environments (GNOME, KDE, Hyprland)
+- `modules/home/` - Home Manager configurations for each desktop environment
+
+### Common Customization Examples
+
+**To add system-wide packages:**
+- Edit `modules/core/packages.nix` for packages available on all hosts
+- Edit `modules/nixos/desktop-common.nix` for Linux desktop-specific packages
+- Edit `modules/darwin/darwin-desktop.nix` for macOS-specific packages
+
+**To customize GNOME settings:**
+- Edit `modules/nixos/gnome.nix` for system-level GNOME configuration
+- Edit `modules/home/gnome.nix` for user-specific GNOME settings (extensions, themes)
+
+**To add user-specific programs:**
+- Edit `modules/home/home-shared.nix` for programs on all platforms
+- Edit specific home modules like `modules/home/nix-desktop/default.nix` for Linux-only programs
+
+**To change host-specific settings:**
+- Edit `hosts/gawain/configuration.nix` for Gawain-only system settings
+- Edit `hosts/gawain/variables.nix` for host-specific variables
+- Edit `hosts/gawain/users/henry/home-configuration.nix` for user overrides on that host
+
 ## Usage
 
 Use the `rebuild.sh` script or `Makefile` to build and switch configurations for each host.
