@@ -6,12 +6,15 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  desktopManager = "gnome";
+in {
   imports = [
     ./hardware-configuration.nix
-    # inputs.self.nixosModules.host-shared
-    inputs.self.nixosModules.desktop
-    inputs.self.nixosModules.gnome
+
+    inputs.self.nixosModules.desktop-common # Common desktop utils
+    # inputs.self.nixosModules.gnome # Window manager / DE we want to use
+    inputs.self.nixosModules."${desktopManager}"
   ];
 
   # on nixos this either isNormalUser or isSystemUser is required to create the user.
@@ -33,19 +36,11 @@
     networkmanager.enable = true;
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-  hardware.nvidia = {
-    open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    modesetting.enable = true;
-    powerManagement.enable = true;
-  };
-
   home-manager.backupFileExtension = "backup";
   home-manager.users.henry = {
-    # imports = [inputs.self.homeModules.desktop];
+    imports = [
+      inputs.self.homeModules."${desktopManager}"
+    ];
     config.home.stateVersion = "25.11";
   };
 

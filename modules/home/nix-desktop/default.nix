@@ -1,7 +1,4 @@
 {pkgs, ...}: {
-  programs.firefox.enable = true;
-  programs.vscode.enable = true;
-
   gtk = {
     enable = true;
     cursorTheme = {
@@ -17,10 +14,6 @@
     XCURSOR_THEME = "macOS";
     XCURSOR_SIZE = "24";
   };
-  # environment.sessionVariables = {
-  #   XCURSOR_THEME = "YourThemeName";
-  #   XCURSOR_SIZE = "24";
-  # };
 
   home.packages = with pkgs; [
     apple-cursor
