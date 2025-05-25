@@ -36,7 +36,7 @@ This repository contains Nix configurations for my three different computers tha
 Each host imports shared modules from the `modules/` directory:
 - **Darwin hosts** use `darwinModules.darwin-desktop`
 - **NixOS hosts** use `nixosModules.desktop` and desktop environment modules
-- Home Manager configurations are tailored per platform (`darwin-desktop` vs `desktop`)
+- Home Manager configurations are tailored per platform (`darwin-desktop` vs `nix-desktop`)
 
 ### Import Hierarchy (Gawain Example)
 
@@ -48,6 +48,7 @@ flake.nix
         ├── nixosModules.desktop-common
         ├── nixosModules.gnome
         └── home-manager.users.henry
+            ├── homeModules.nix-desktop
             └── homeModules.gnome
 ```
 
