@@ -11,10 +11,8 @@
 in {
   imports = [
     ./hardware-configuration.nix
-
     inputs.self.nixosModules.desktop-common # Common desktop utils
-    # inputs.self.nixosModules.gnome # Window manager / DE we want to use
-    inputs.self.nixosModules."${desktopManager}"
+    inputs.self.nixosModules."${desktopManager}" #Desktop environment
   ];
 
   # on nixos this either isNormalUser or isSystemUser is required to create the user.
