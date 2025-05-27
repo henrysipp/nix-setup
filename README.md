@@ -4,6 +4,8 @@ This repository contains Nix configurations for my three different computers tha
 
 ## Hosts
 
+Arthurian names because why not.
+
 ### Albion (`hosts/albion/`)
 **Work MacBook Pro (ARM64)**
 - **Platform**: `aarch64-darwin` (Apple Silicon)
