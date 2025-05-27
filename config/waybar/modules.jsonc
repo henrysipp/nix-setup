@@ -1,0 +1,77 @@
+{
+	"custom/gpu": {
+	  "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+	  "format": "GPU: {}%",
+	  "interval": 5,
+	},
+	"custom/cpu": {
+	  "exec": "sensors | grep 'Package id 0:' | awk '{print $4}' | tr -d '+°C'",
+	  "interval": 5,
+	  "format": "CPU: {}°C",
+	},
+	"hyprland/workspaces": {
+	  // "format": "<span font='8px'>{icon}</span>",
+	  // "format-icons": {
+	  //   "active": "<big></big>",
+	  //   "default": "<big></big>",
+	  // },
+	  "disable-scroll": false,
+	  "all-outputs": true,
+	  "active-only": false,
+	  "on-click": "activate",
+	  "persistent-workspaces": {
+	    "*": 5,
+	  },
+	},
+	"tray": {
+	  "icon-size": 20,
+	  "spacing": 10,
+	},
+	"network": {
+	  "format-wifi": "󰖩   {essid}",
+	  "format-ethernet": "",
+	  "tooltip-format": "  {ifname} via {gwaddr}",
+	  "format-linked": "  {ifname} (No IP)",
+	  "format-disconnected": "󱚵  Disconnected",
+	  "on-click": "$TERMINAL -e nmtui",
+	},
+	"cpu": {
+	  "interval": 10,
+	  "format": "  {}%",
+	  "max-length": 10,
+	},
+	"memory": {
+	  "interval": 30,
+	  "format": "  {}%",
+	  "max-length": 10,
+	},
+	"pulseaudio": {
+	  "scroll-step": 5,
+	  "format": "{icon} {volume}%",
+	  "format-bluetooth": "{volume}% {icon}",
+	  "format-bluetooth-muted": " {icon}",
+	  "format-icons": {
+	    "headphone": "",
+	    "hands-free": "",
+	    "headset": "",
+	    "phone": "",
+	    "portable": "",
+	    "car": "",
+	    "default": ["", "", ""],
+	  },
+	  "on-click": "pavucontrol",
+	  // "on-click": "flatpak run com.saivert.pwvucontrol",
+	},
+	"custom/power": {
+	  "format": "⏻",
+	  "interval": "once",
+	  "tooltip": false,
+	  "on-click": "wlogout",
+	},
+	"clock": {
+	  "timezone": "America/Chicago",
+	  "tooltip-format": "<tt><small>{calendar}</small></tt>",
+	  "format": "{:%a %b %d, %I:%M %p}",
+	  "interval": 60,
+	},
+}
