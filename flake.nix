@@ -20,18 +20,17 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-webapps.url = "github:TLATER/nix-webapps";
 
-    systems.url = "github:nix-systems/default";
     ags.url = "github:Aylur/ags";
 
     import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
-  # outputs = inputs:
-  #   inputs.blueprint {
-  #     inherit inputs;
-  #     nixpkgs.config.allowUnfree = true;
-  #   };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+    systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+    imports = [
+      (inputs.import-tree ./modules);
+    ];
+  };
 
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
