@@ -23,14 +23,10 @@
     ags.url = "github:Aylur/ags";
 
     import-tree.url = "github:vic/import-tree";
+    systems.url = "github:nix-systems/default";
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-    systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-    imports = [
-      (inputs.import-tree ./modules)
-    ];
-  };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
 
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
