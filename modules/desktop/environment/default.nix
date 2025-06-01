@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   flake.modules = {
     nixos.desktop = {
       # What to put here?
