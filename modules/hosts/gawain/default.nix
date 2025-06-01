@@ -1,15 +1,15 @@
-{...}: {
-  flake.modules.hosts.gawain = {config, ...}: {
-    system = "x86_64-linux";
+{config, ...}: {
+  flake.modules.hosts.gawain = {
     imports = with (config.flake.modules.nixos);
     # Import nixos modules for host `gawain`
       [
         base
         desktop
+        dev
+        games
         shell
         # fwupd
       ]
-      # Import the `nixosUsers`
       ++ config.flake.modules.nixosUsers.root.imports
       ++ config.flake.modules.nixosUsers.henry.imports
       ++ [

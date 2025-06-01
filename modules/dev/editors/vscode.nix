@@ -1,12 +1,12 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
-  flake.modules.nixos.dev = {
-  };
+{nixpkgs, ...}: {
+  flake.modules = {
+    nixpkgs.allowedUnfreePackages = ["vscode"];
 
-  flake.modules.home-manager.dev = {
-    programs.vscode.enable = true;
+    nixos.dev = {
+    };
+
+    homeManager.dev = {
+      # programs.vscode.enable = true;
+    };
   };
 }

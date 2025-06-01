@@ -27,18 +27,9 @@
     systems.url = "github:nix-systems/default";
   };
 
-  # outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules/flake);
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
 
-  # outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-  #   imports = [
-  #     inputs.flake-parts.flakeModules.modules
-  #   ] ++ (inputs.import-tree ./modules).imports;
-  #   # Systems must be defined at the top level for flake-parts
-  #   systems = import inputs.systems;
-  # };
-
-  # nixConfig = {
-  #   experimental-features = ["nix-command" "flakes"];
-  # };
+  nixConfig = {
+    experimental-features = ["nix-command" "flakes"];
+  };
 }

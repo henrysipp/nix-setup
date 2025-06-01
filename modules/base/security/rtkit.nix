@@ -1,5 +1,5 @@
 {...}: {
   flake.modules.nixos.base = {
-    rtkit.enable = true;
+    security.rtkit.enable = true;
   };
 }

@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.base = {
-    polkit = {
+    security.polkit = {
       enable = true;
       extraConfig = ''
         polkit.addRule(function(action, subject) {
