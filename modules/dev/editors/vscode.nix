@@ -3,12 +3,10 @@
   lib,
   ...
 }: {
-  flake.modules = {
-    nixos.dev = {
-    };
+  flake.modules.nixos.dev = {
+  };
 
-    home-manager.dev = {
-      programs.vscode.enable = true;
-    };
+  flake.modules.home-manager.dev = {
+    programs.vscode.enable = true;
   };
 }

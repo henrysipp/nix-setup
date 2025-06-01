@@ -1,9 +1,7 @@
 {...}: {
-  flake.modules = {
-    nixosUsers.root = {pkgs, ...}: {
-      users.users.root = {
-        initialPassword = "id";
-      };
+  flake.modules.nixosUsers.root = {pkgs, ...}: {
+    users.users.root = {
+      initialPassword = "id";
     };
   };
 }
