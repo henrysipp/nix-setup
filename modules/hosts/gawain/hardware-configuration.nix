@@ -2,7 +2,11 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {lib, ...}: {
-  flake.modules.hosts.gawain = {config, pkgs, ...}: {
+  flake.modules.hosts.gawain = {
+    config,
+    pkgs,
+    ...
+  }: {
     boot.initrd.availableKernelModules = ["vmd" "xhci_pci" "ahci" "nvme" "thunderbolt" "usbhid" "usb_storage" "sd_mod"];
     boot.initrd.kernelModules = [];
     boot.kernelModules = ["kvm-intel"];

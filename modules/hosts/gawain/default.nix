@@ -1,6 +1,6 @@
 {...}: {
   flake.modules.hosts.gawain = {config, ...}: {
-    system = "x86_64-linux";  
+    system = "x86_64-linux";
     imports = with (config.flake.modules.nixos);
     # Import nixos modules for host `gawain`
       [

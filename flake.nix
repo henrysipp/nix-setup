@@ -33,6 +33,7 @@
     
     # Systems must be defined at the top level for flake-parts
     systems = import inputs.systems;
+    
   };
 
   nixConfig = {
