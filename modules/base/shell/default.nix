@@ -22,10 +22,6 @@
         sessionVariables = {
           EDITOR = "nvim";
         };
-        shellAliases = {
-          update = "sudo darwin-rebuild switch --flake ~/nix-darwin-config";
-          nix-gc = "nix-env --delete-generations +3";
-        };
       };
     };
   };
