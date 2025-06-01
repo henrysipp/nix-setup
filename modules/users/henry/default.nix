@@ -26,7 +26,7 @@
           "wheel"
         ];
 
-        hashedPassword = "$y$j9T$guKKxlVyFoz3UznhYlNLZ/$IS66tZuuPXa9kClWh83ugZNoo.WEWRt/KMcTJomqmR.";
+        initialPassword = "changeme";
       };
     };
   };

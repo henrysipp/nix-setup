@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   flake.modules = {
     nixos.desktop = {pkgs, ...}: {
       fonts.packages = with pkgs; [

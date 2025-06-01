@@ -1,11 +1,6 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: {
+{...}: {
   flake.modules = {
-    nixos.gawain = {
+    nixos.gawain = {config, ...}: {
       services.xserver.videoDrivers = ["nvidia"];
       hardware.nvidia = {
         # Modesetting is required.

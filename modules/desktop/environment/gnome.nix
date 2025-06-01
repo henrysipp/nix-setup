@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{...}: {
   flake.modules = {
-    nixos.desktop = {
+    nixos.desktop = {pkgs, ...}: {
       services.xserver = {
         enable = true;
         xkb.layout = "us";
