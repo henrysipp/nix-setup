@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/henrysipp/nix-setup#readme",
   "dependencies": {
-    "@anthropic-ai/claude-code": "^1.0.3"
+    "@anthropic-ai/claude-code": "^1.0.6"
   }
 }
