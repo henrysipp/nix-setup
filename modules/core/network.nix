@@ -1,3 +1,0 @@
-{...}: {
-  services.samba.enable = true;
-}
