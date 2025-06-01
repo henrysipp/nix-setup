@@ -19,7 +19,8 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-webapps.url = "github:TLATER/nix-webapps";
-
+    
+    systems.url = "github:nix-systems/default";
     ags.url = "github:Aylur/ags";
 
     import-tree.url = "github:vic/import-tree";
