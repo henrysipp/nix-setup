@@ -13,6 +13,5 @@
         store.cleanup = true;
       };
     };
-
   };
 }

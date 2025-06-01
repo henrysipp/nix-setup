@@ -1,85 +1,58 @@
-{
-  inputs,
-  lib,
-  config,
-  ...
-}:
-{
-  flake.nixosConfigurations = lib.pipe (config.flake.modules.hosts or { }) [
-    (lib.mapAttrs (
-      name: module:
-      let
-        specialArgs = {
-          inherit inputs;
-          hostConfig = module // {
-            name = name;
-            nixpkgs.config.allowUnfree = true;
-          };
-        };
-      in
-      inputs.nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = module.imports ++ [
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = specialArgs;
-            nixpkgs.config.allowUnfree = true;
-          }
-        ];
-      }
-    ))
-  ];
+{config, inputs, lib, ...}: let
+  flake.nixosConfigurations = {
+    gawain = linux "gawain";
+  };
+  flake.darwinConfigurations = {
+    # albion = darwin-arm "albion";
+    # mordred = darwin-arm "mordred";
+  };
+  linux = mkNixos "x86_64-linux" "nixos";
+  linux-arm = mkNixos "aarch64-linux" "nixos";
+  darwin-intel = mkDarwin "x86_64-darwin";
+  darwin-arm = mkDarwin "aarch64-darwin";
+
+  # Helper functions for creating system configurations
+  mkNixos = system: cls: name: let
+    hostModule = config.flake.modules.hosts.${name};
+    specialArgs = {
+      inherit inputs;
+      hostConfig = hostModule // { name = name; };
+    };
+  in
+    inputs.nixpkgs.lib.nixosSystem {
+      inherit system specialArgs;
+      modules = hostModule.imports ++ [
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.extraSpecialArgs = specialArgs;
+          networking.hostName = lib.mkDefault name;
+          nixpkgs.hostPlatform = lib.mkDefault system;
+          nixpkgs.config.allowUnfree = true;
+        }
+      ];
+    };
+
+  mkDarwin = system: name: let
+    hostModule = config.flake.modules.hosts.${name};
+    specialArgs = {
+      inherit inputs;
+      hostConfig = hostModule // { name = name; };
+    };
+  in
+    inputs.nix-darwin.lib.darwinSystem {
+      inherit system specialArgs;
+      modules = hostModule.imports ++ [
+        inputs.home-manager.darwinModules.home-manager
+        {
+          home-manager.extraSpecialArgs = specialArgs;
+          networking.hostName = lib.mkDefault name;
+          nixpkgs.hostPlatform = lib.mkDefault system;
+          nixpkgs.config.allowUnfree = true;
+          system.stateVersion = 6;
+        }
+      ];
+    };
+
+in {
+  inherit flake;
 }
-
-# {inputs, lib, ...}: let
-#   flake.nixosConfigurations = {
-#     gawain = linux "gawain";
-#   };
-
-#   flake.darwinConfigurations = {
-#     mordred = darwin-arm "mordred";
-#   };
-
-#   linux = mkNixos "x86_64-linux" "nixos";
-#   linux-arm = mkNixos "aarch64-linux" "nixos";
-
-#   darwin-intel = mkDarwin "x86_64-darwin";
-#   darwin-arm = mkDarwin "aarch64-darwin";
-
-#   mkNixos = system: cls: name:
-#     inputs.nixpkgs.lib.nixosSystem {
-#       inherit system;
-#       modules = [
-#         # inputs.self.modules.nixos.${cls}
-#         # inputs.self.modules.nixos.${name}
-#         # inputs.self.modules.nixos.${system}
-#         inputs.self.modules.hosts.${system}
-#         {
-#           networking.hostName = lib.mkDefault name;
-#           nixpkgs.hostPlatform = lib.mkDefault system;
-#           nixpkgs.config.allowUnfree = true;
-
-#           system.stateVersion = "25.05";
-#         }
-#       ];
-#     };
-
-#   mkDarwin = system: name:
-#     inputs.nix-darwin.lib.darwinSystem {
-#       inherit system;
-#       modules = [
-#         inputs.self.modules.darwin.darwin
-#         inputs.self.modules.darwin.${name}
-#         inputs.self.modules.darwin.${system}
-#         {
-#           networking.hostName = lib.mkDefault name;
-#           nixpkgs.hostPlatform = lib.mkDefault system;
-#           nixpkgs.config.allowUnfree = true;
-
-#           system.stateVersion = 6;
-#         }
-#       ];
-#     };
-# in {
-#   inherit flake;
-# }
