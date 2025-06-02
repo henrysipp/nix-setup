@@ -1,9 +1,10 @@
 {...}: {
-  flake.modules.nixos.desktop = {
+  flake.modules.nixos.desktop = {pkgs, ...}: {
     # What to put here?
   };
 
   flake.modules.homeManager.desktop = {pkgs, ...}: {
+    
     gtk = {
       enable = true;
       cursorTheme = {
