@@ -1,4 +1,9 @@
-{config, inputs, lib, ...}: let
+{
+  config,
+  inputs,
+  lib,
+  ...
+}: let
   flake.nixosConfigurations = {
     gawain = linux "gawain";
   };
@@ -16,43 +21,46 @@
     hostModule = config.flake.modules.hosts.${name};
     specialArgs = {
       inherit inputs;
-      hostConfig = hostModule // { name = name; };
+      hostConfig = hostModule // {name = name;};
     };
   in
     inputs.nixpkgs.lib.nixosSystem {
       inherit system specialArgs;
-      modules = hostModule.imports ++ [
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.extraSpecialArgs = specialArgs;
-          networking.hostName = lib.mkDefault name;
-          nixpkgs.hostPlatform = lib.mkDefault system;
-          nixpkgs.config.allowUnfree = true;
-        }
-      ];
+      modules =
+        hostModule.imports
+        ++ [
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = specialArgs;
+            networking.hostName = lib.mkDefault name;
+            nixpkgs.hostPlatform = lib.mkDefault system;
+            nixpkgs.config.allowUnfree = true;
+          }
+        ];
     };
 
   mkDarwin = system: name: let
     hostModule = config.flake.modules.hosts.${name};
     specialArgs = {
       inherit inputs;
-      hostConfig = hostModule // { name = name; };
+      hostConfig = hostModule // {name = name;};
     };
   in
     inputs.nix-darwin.lib.darwinSystem {
       inherit system specialArgs;
-      modules = hostModule.imports ++ [
-        inputs.home-manager.darwinModules.home-manager
-        {
-          home-manager.extraSpecialArgs = specialArgs;
-          networking.hostName = lib.mkDefault name;
-          nixpkgs.hostPlatform = lib.mkDefault system;
-          nixpkgs.config.allowUnfree = true;
-          system.stateVersion = 6;
-        }
-      ];
+      modules =
+        hostModule.imports
+        ++ [
+          inputs.home-manager.darwinModules.home-manager
+          {
+            home-manager.extraSpecialArgs = specialArgs;
+            networking.hostName = lib.mkDefault name;
+            nixpkgs.hostPlatform = lib.mkDefault system;
+            nixpkgs.config.allowUnfree = true;
+            system.stateVersion = 6;
+          }
+        ];
     };
-
 in {
   inherit flake;
 }

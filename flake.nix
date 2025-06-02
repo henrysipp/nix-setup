@@ -18,8 +18,8 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";
   };
-  
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);  
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
     allow-unfree = true;

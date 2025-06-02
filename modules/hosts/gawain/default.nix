@@ -1,6 +1,5 @@
 {config, ...}: {
   flake.modules.hosts.gawain = {
-
     imports = with (config.flake.modules.nixos);
     # Import nixos modules for host `gawain`
       [

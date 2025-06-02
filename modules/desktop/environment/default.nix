@@ -4,7 +4,6 @@
   };
 
   flake.modules.homeManager.desktop = {pkgs, ...}: {
-    
     gtk = {
       enable = true;
       cursorTheme = {

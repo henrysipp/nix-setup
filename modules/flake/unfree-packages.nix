@@ -1,5 +1,9 @@
-{ inputs, lib, config, ... }:
 {
+  inputs,
+  lib,
+  config,
+  ...
+}: {
   # options.nixpkgs.allowedUnfreePackages = lib.mkOption {
   #   type = lib.types.listOf lib.types.str;
   #   default = [ ];
@@ -22,5 +26,4 @@
 
   #   meta.nixpkgs.allowedUnfreePackages = config.nixpkgs.allowedUnfreePackages;
   # };
-
 }
