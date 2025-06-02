@@ -3,15 +3,13 @@
     # What to put here?
   };
 
-  flake.modules.home-manager.desktop = {pkgs, ...}: {
+  flake.modules.homeManager.desktop = {pkgs, ...}: {
     gtk = {
       enable = true;
       cursorTheme = {
         package = pkgs.apple-cursor;
         name = "macOS";
         size = 24;
-        # package = pkgs.bibata-cursors;
-        # name = "Bibata Modern Ice";
       };
     };
 
