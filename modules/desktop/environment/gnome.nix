@@ -24,7 +24,7 @@
           switch-to-workspace-4=['<Super>4']
           switch-to-workspace-5=['<Super>5']
           switch-to-workspace-6=['<Super>6']
-          
+
           # Move app to workspace with Super+Shift+Number
           move-to-workspace-1=['<Super><Shift>1']
           move-to-workspace-2=['<Super><Shift>2']
