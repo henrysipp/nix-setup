@@ -8,7 +8,7 @@
     gawain = linux "gawain";
   };
   flake.darwinConfigurations = {
-    # albion = darwin-arm "albion";
+    albion = darwin-arm "albion";
     # mordred = darwin-arm "mordred";
   };
   linux = mkNixos "x86_64-linux" "nixos";
@@ -54,7 +54,7 @@
           inputs.home-manager.darwinModules.home-manager
           {
             home-manager.extraSpecialArgs = specialArgs;
-            networking.hostName = lib.mkDefault name;
+            # networking.hostName = lib.mkDefault name;
             nixpkgs.hostPlatform = lib.mkDefault system;
             nixpkgs.config.allowUnfree = true;
             system.stateVersion = 6;

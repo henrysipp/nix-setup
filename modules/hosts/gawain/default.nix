@@ -16,7 +16,6 @@
         {
           home-manager.users.henry.nixpkgs.config.allowUnfree = true;
         }
-        #Import home-manager modules for `henry` only.
         {
           home-manager.users.henry.imports = with config.flake.modules.homeManager; [
             base
