@@ -1,1 +1,3 @@
-{...}: {}
+{...}: {
+  flake.modules.darwin.work = {};
+}

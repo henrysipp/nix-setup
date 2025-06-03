@@ -1,6 +1,15 @@
 {...}: {
   flake.modules = {
-    nixos.shell = {
+    nixos.shell = {pkgs, ...}: {
+      environment.systemPackages = with pkgs; [
+        direnv
+      ];
+    };
+
+    darwin.shell = {pkgs, ...}: {
+      environment.systemPackages = with pkgs; [
+        direnv
+      ];
     };
 
     homeManager.shell = {

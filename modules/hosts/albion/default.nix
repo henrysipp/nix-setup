@@ -5,7 +5,8 @@
     imports = with (config.flake.modules.darwin); [
       system
       desktop
-      #work
+      shell
+      work
     ] 
     ++ [
       {
