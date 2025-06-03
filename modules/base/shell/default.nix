@@ -1,18 +1,13 @@
 {...}: {
   flake.modules = {
     nixos.shell = {pkgs, ...}: {
-      environment.systemPackages = with pkgs; [
-        direnv
-      ];
     };
 
     darwin.shell = {pkgs, ...}: {
-      environment.systemPackages = with pkgs; [
-        direnv
-      ];
     };
 
     homeManager.shell = {
+      programs.direnv.enable = true;
       programs.starship.enable = true;
       programs.zellij.enable = true;
       programs.zsh = {

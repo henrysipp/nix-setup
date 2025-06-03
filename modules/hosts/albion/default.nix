@@ -2,24 +2,27 @@
 # This is the configuration for my work Macbook Pro
 {config, ...}: {
   flake.modules.hosts.albion = {
-    imports = with (config.flake.modules.darwin); [
-      system
-      desktop
-      shell
-      work
-    ] 
-    ++ [
-      {
-        home-manager.users.henry.nixpkgs.config.allowUnfree = true;
-      }
-      {
-        home-manager.users.henry.imports = with config.flake.modules.homeManager; [
-          base
-          darwin-desktop
-          shell
-        ];
-      }
-    ];
+    imports = with (config.flake.modules.darwin);
+      [
+        system
+        desktop
+        shell
+        work
+      ]
+      ++ [
+        {
+          home-manager.users.henry.nixpkgs.config.allowUnfree = true;
+        }
+        {
+          home-manager.users.henry.imports = with config.flake.modules.homeManager; [
+            base
+            darwin-desktop
+            shell
+            nvim
+            # nixvim
+          ];
+        }
+      ];
 
     nixpkgs.hostPlatform = "aarch64-darwin";
     users.users.henry.home = /Users/henry;

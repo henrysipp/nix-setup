@@ -1,0 +1,5 @@
+building the system configuration...
+warning: Git tree '/Users/henry/nix-darwin-config' is dirty
+Using saved setting for 'allow-unfree = true' from ~/.local/share/nix/trusted-settings.json.
+Using saved setting for 'experimental-features = nix-command flakes' from ~/.local/share/nix/trusted-settings.json.
+error: flake 'git+file:///Users/henry/nix-darwin-config' does not provide attribute 'packages.aarch64-darwin.darwinConfigurations.Henrys-MacBook-Pro.system', 'legacyPackages.aarch64-darwin.darwinConfigurations.Henrys-MacBook-Pro.system' or 'darwinConfigurations.Henrys-MacBook-Pro.system'

@@ -29,7 +29,7 @@ if command -v nixos-rebuild >/dev/null 2>&1; then
     fi
 elif command -v darwin-rebuild >/dev/null 2>&1; then
     echo "Darwin Rebuilding..."
-    if darwin-rebuild switch --flake . &>darwin-switch.log; then
+    if sudo darwin-rebuild switch --flake . &>darwin-switch.log; then
         gen_info=$(darwin-rebuild --list-generations | grep current)
         gen_num=$(echo "$gen_info" | awk '{print $1}')
         gen="Darwin Gen $gen_num"

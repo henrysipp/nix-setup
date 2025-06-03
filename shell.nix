@@ -3,6 +3,7 @@ pkgs.mkShell {
   buildInputs = with pkgs; [
     # Node.js 22.15.0
     nodejs_22
+    alejandra
   ];
 
   shellHook = ''
