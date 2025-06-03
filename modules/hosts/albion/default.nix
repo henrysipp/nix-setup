@@ -9,12 +9,13 @@
     ] 
     ++ [
       {
-        # home-manager.users.henry.nixpkgs.config.allowUnfree = true;
+        home-manager.users.henry.nixpkgs.config.allowUnfree = true;
       }
       {
         home-manager.users.henry.imports = with config.flake.modules.homeManager; [
           base
           darwin-desktop
+          shell
         ];
       }
     ];
