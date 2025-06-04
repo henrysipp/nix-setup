@@ -2,7 +2,6 @@
   flake.modules.nixos.desktop = {pkgs, ...}: {
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
-
     # Configure dconf settings using the proper NixOS module
     programs.dconf = {
       enable = true;
@@ -51,21 +50,44 @@
               switch-to-application-8 = ["<Alt>8"];
               switch-to-application-9 = ["<Alt>9"];
             };
+            # Application workspace assignments
+            "org/gnome/shell/app-switcher" = {
+              current-workspace-only = false;
+            };
+            # Workspace assignments for specific applications
+            "org/gnome/desktop/wm/preferences" = {
+              workspace-names = ["Web" "Development" "Gaming" "General"];
+            };
+          };
+        }
+        {
+          # Application-specific workspace assignments
+          lockAll = false;
+          settings = {
+            # Firefox to workspace 1
+            "org/gnome/shell/extensions/auto-move-windows" = {
+              application-list = [
+                "firefox.desktop:1"
+                "code.desktop:2"
+                "webstorm.desktop:2" 
+                "Alacritty.desktop:2"
+                "steam.desktop:3"
+                "discord.desktop:3"
+              ];
+            };
           };
         }
       ];
     };
-
     # Disable indexing service to save power
     services.gnome.localsearch.enable = false;
     services.libinput.enable = true;
-
     environment.systemPackages = with pkgs; [
       gnome-tweaks
       gnome-settings-daemon
       gnomeExtensions.extension-list
+      gnomeExtensions.auto-move-windows  # Required for workspace assignments
     ];
-
     environment.gnome.excludePackages = with pkgs; [
       orca
       evince

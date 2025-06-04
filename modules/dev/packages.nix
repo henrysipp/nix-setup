@@ -20,6 +20,7 @@
       # Editors
       neovim
       vscode
+      jetbrains-toolbox
     ];
   };
 }
