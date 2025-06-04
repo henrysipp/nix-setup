@@ -3,7 +3,6 @@
     environment.systemPackages = with pkgs; [
       # Version control
       gh
-      git
 
       # Code formatting
       alejandra

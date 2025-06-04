@@ -6,6 +6,7 @@
 }: let
   flake.nixosConfigurations = {
     gawain = linux "gawain";
+    guren = linux "guren";
   };
   flake.darwinConfigurations = {
     albion = darwin-arm "albion";

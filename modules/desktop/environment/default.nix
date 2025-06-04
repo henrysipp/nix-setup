@@ -1,6 +1,10 @@
 {...}: {
   flake.modules.nixos.desktop = {pkgs, ...}: {
     # What to put here?
+    services.xserver = {
+      layout = "us";
+      xkbOptions = "ctrl:nocaps";
+    };
   };
 
   flake.modules.homeManager.desktop = {pkgs, ...}: {

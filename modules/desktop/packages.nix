@@ -1,8 +1,13 @@
 {...}: {
   flake.modules.nixos.desktop = {pkgs, ...}: {
     programs = {
+      _1password.enable = true;
       _1password-gui.enable = true;
-      # dconf.enable = true; # Enabled by default in gnome, needed for hyprland
+
+      # TODO: Dynamically get user names
+      _1password-gui.polkitPolicyOwners = ["henry"];
+
+      dconf.enable = true; # Enabled by default in gnome, needed for hyprland
     };
 
     environment.systemPackages = with pkgs; [

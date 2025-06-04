@@ -4,6 +4,6 @@
       hostName = hostConfig.name;
       networkmanager.enable = true;
     };
-    services.samba.enable = true;
+    # services.samba.enable = true;
   };
 }
