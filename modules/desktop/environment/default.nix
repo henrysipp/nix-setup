@@ -2,8 +2,8 @@
   flake.modules.nixos.desktop = {pkgs, ...}: {
     # What to put here?
     services.xserver = {
-      layout = "us";
-      xkbOptions = "ctrl:nocaps";
+      xkb.layout = "us";
+      xkb.options = "ctrl:nocaps";
     };
   };
 
@@ -39,7 +39,6 @@
       tdesktop # telegram
 
       # gaming
-      flatpak
       protonup-qt
     ];
   };

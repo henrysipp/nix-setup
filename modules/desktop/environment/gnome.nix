@@ -9,9 +9,14 @@
         {
           lockAll = false; # Allow users to override these settings
           settings = {
+            "org/gnome/desktop/interface" = {
+              color-scheme = "prefer-dark";
+              clock-format = "12h";
+              clock-show-weekday = true;
+            };
             "org/gnome/desktop/peripherals/touchpad" = {
-              "speed" = 0.5;
-              "natural-scroll" = false;
+              "speed" = 0.25;
+              "natural-scroll" = true;
             };
             # GNOME Desktop Keybindings Configuration
             "org/gnome/desktop/wm/keybindings" = {
@@ -69,7 +74,7 @@
               application-list = [
                 "firefox.desktop:1"
                 "code.desktop:2"
-                "webstorm.desktop:2" 
+                "webstorm.desktop:2"
                 "Alacritty.desktop:2"
                 "steam.desktop:3"
                 "discord.desktop:3"
@@ -86,7 +91,7 @@
       gnome-tweaks
       gnome-settings-daemon
       gnomeExtensions.extension-list
-      gnomeExtensions.auto-move-windows  # Required for workspace assignments
+      gnomeExtensions.auto-move-windows # Required for workspace assignments
     ];
     environment.gnome.excludePackages = with pkgs; [
       orca
