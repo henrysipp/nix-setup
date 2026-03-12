@@ -48,11 +48,13 @@
     typora
     dropbox
     spotify
+    _1password-gui
     # zoom
 
     # Development tools
     github-desktop
     gh
+    codex
 
     # Containers
     docker-compose

@@ -6,10 +6,7 @@ nixos:
 	sudo nixos-rebuild switch --flake . --impure
 
 nixos-oma:
-	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/henry/Developer/omarchy-nix
-
-nixos-homelab:
-	nixos-rebuild switch --flake .#homelab --target-host henry@homelab-1 --use-remote-sudo --show-trace 
+	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/henrysipp/Developer/omarchy-nix
 
 macos:
 	sudo darwin-rebuild switch --flake .#

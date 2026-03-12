@@ -6,37 +6,34 @@
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.home-manager.nixosModules.default
-    inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
-    inputs.fw-fanctrl.nixosModules.default
+  imports =
+    [
+      inputs.home-manager.nixosModules.default
+      inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+      inputs.lanzaboote.nixosModules.lanzaboote
+      ../../modules/users/henrysipp.nix
+      ./hardware-configuration.nix
 
-    outputs.nixosModules.berkeley-mono
-    outputs.nixosModules.omarchy-config
+      ../../profiles/global.nix
+      ../../profiles/desktop.nix
+      ../../profiles/dev.nix
+      ../../profiles/packages.nix
 
-    ../../modules/users/henry.nix
-    ./hardware-configuration.nix
+      ../../profiles/gnome
+    ];
 
-    ../common/global.nix
-    ../common/desktop.nix
-    ../common/dev.nix
-    ../common/samba.nix
-
-    ../common/packages.nix
-
-    # ../common/gnome
-  ];
-
-  home-manager.users.henry = {
+  home-manager.users.henrysipp = {
     imports = [
-      ../../home/henry
-      inputs.omarchy.homeManagerModules.default
+      ../../home/henrysipp
     ];
   };
 
-  environment.systemPackages = [pkgs.filezilla];
+  environment.systemPackages = [
+    pkgs.filezilla
+    pkgs.sbctl
+  ];
   # Fan control
-  programs.fw-fanctrl.enable = true;
+  hardware.fw-fanctrl.enable = true;
   home-manager.useGlobalPkgs = true;
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
@@ -45,12 +42,14 @@
   networking.hostName = "siegfried";
   system.stateVersion = "25.05";
   security.polkit.enable = true;
+
   boot.loader = {
-    timeout = 0;
+    timeout = 5;
     efi.canTouchEfiVariables = true;
-    systemd-boot = {
-      enable = true;
-      # configurationLimit = 4;
-    };
+    systemd-boot.enable = lib.mkForce false;
+  };
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
   };
 }

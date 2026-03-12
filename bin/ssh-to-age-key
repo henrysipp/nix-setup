@@ -1,2 +1,0 @@
-# Make sure to set OP_SSH_KEY_PATH to something like op://vault_uid/SSH Key/private key?ssh-format=openssh
-nix-shell -p ssh-to-age --run "op read '$OP_SSH_KEY_PATH' | ssh-to-age -private-key > ~/.config/sops/age/keys.txt"
