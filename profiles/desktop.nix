@@ -12,6 +12,12 @@
     pkgs.nixos-anywhere
   ];
 
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = ["henrysipp"];
+  };
+
   # programs.obs-studio = {
   #   enable = true;
   #   enableVirtualCamera = true;

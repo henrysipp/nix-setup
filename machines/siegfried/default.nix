@@ -19,7 +19,7 @@
       ../../profiles/dev.nix
       ../../profiles/packages.nix
 
-      ../../profiles/gnome
+      ../../profiles/gnome/default.nix
     ];
 
   home-manager.users.henrysipp = {
@@ -32,6 +32,7 @@
     pkgs.filezilla
     pkgs.sbctl
   ];
+  
   # Fan control
   hardware.fw-fanctrl.enable = true;
   home-manager.useGlobalPkgs = true;
@@ -39,6 +40,12 @@
     inherit inputs outputs;
   };
   services.fwupd.enable = true;
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+  security.pam.services.sudo.fprintAuth = true;
+  security.pam.services.gdm.fprintAuth = true;
+  security.pam.services.gdm-password.fprintAuth = true;
   networking.hostName = "siegfried";
   system.stateVersion = "25.05";
   security.polkit.enable = true;

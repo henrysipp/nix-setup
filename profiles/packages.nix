@@ -30,7 +30,9 @@
     # GUIs
     chromium
     firefox
+    jetbrains-toolbox
     obsidian
+    slack
     vlc
 
     # Can't find this in nixpkgs!
@@ -48,7 +50,6 @@
     typora
     dropbox
     spotify
-    _1password-gui
     # zoom
 
     # Development tools
