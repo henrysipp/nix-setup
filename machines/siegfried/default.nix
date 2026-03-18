@@ -39,13 +39,6 @@
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
   };
-  nixpkgs.overlays = [
-    (final: prev: {
-      gnome-control-center = prev.gnome-control-center.overrideAttrs (old: {
-        buildInputs = (old.buildInputs or []) ++ [ final.libfprint ];
-      });
-    })
-  ];
   services.fwupd.enable = true;
   
   services.fprintd.enable = true;

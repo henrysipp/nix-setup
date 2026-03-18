@@ -28,7 +28,7 @@
         meta = with prev.lib; {
           description = "OpenAI Codex CLI";
           homepage = "https://github.com/openai/codex";
-          license = licenses.apache2;
+          license = licenses.asl20;
           platforms = ["x86_64-linux"];
         };
       };
