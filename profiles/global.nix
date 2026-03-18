@@ -12,6 +12,7 @@
     overlays = [
       # outputs.overlays.additions
       # outputs.overlays.modifications
+      outputs.overlays.codex
       outputs.overlays.unstable-packages
     ];
     config = {
@@ -23,6 +24,8 @@
     trusted-users = ["root" "henrysipp"];
   };
   services.tailscale.enable = true;
+  programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = [pkgs.btop];
 }

@@ -17,3 +17,8 @@ Why: <short reason this rule exists>
 ```
 
 ## Active Canonical Rules
+## 2026-03-17 00:00
+Context: Platform targeting
+Type: preference
+Rule: Prefer Linux-only packaging in this repo unless macOS support is explicitly needed.
+Why: Repo is focused on NixOS; extra platforms add noise.

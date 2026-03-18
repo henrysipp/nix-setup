@@ -39,13 +39,23 @@
   home-manager.extraSpecialArgs = {
     inherit inputs outputs;
   };
+  nixpkgs.overlays = [
+    (final: prev: {
+      gnome-control-center = prev.gnome-control-center.overrideAttrs (old: {
+        buildInputs = (old.buildInputs or []) ++ [ final.libfprint ];
+      });
+    })
+  ];
   services.fwupd.enable = true;
+  
   services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
-  security.pam.services.sudo.fprintAuth = true;
-  security.pam.services.gdm.fprintAuth = true;
-  security.pam.services.gdm-password.fprintAuth = true;
+  systemd.services.fprintd = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "simple";
+  };
+  # services.fprintd.tod.enable = true;
+  # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+  
   networking.hostName = "siegfried";
   system.stateVersion = "25.05";
   security.polkit.enable = true;

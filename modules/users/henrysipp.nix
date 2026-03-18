@@ -1,8 +1,9 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
   users.users = {
     henrysipp = {
       isNormalUser = true;
       initialPassword = "changeme";
+      shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
       ];
 
