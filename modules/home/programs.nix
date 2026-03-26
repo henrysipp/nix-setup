@@ -1,27 +1,21 @@
-{ config, ... }: {
+{...}: {
   programs.home-manager.enable = true;
-
-  # home.sessionVariables = {
-  #   # Prefer 1Password's agent over gcr so SSH doesn't fall back to askpass.
-  #   SSH_AUTH_SOCK = "${config.home.homeDirectory}/.1password/agent.sock";
-  # };
 
   programs.ssh = {
     enable = true;
-    enableDefaultConfig = true;
-    extraConfig = ''
-      Host *
-          IdentityAgent ~/.1password/agent.sock
-    '';
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      identityAgent = "~/.1password/agent.sock";
+    };
   };
 
   programs.git = {
     enable = true;
     settings = {
       credential.helper = "store";
+      user.email = "hesipp@gmail.com";
+      user.name = "Henry Sipp";
     };
-    userEmail = "hesipp@gmail.com";
-    userName = "Henry Sipp";
   };
 
   programs.gh = {

@@ -85,14 +85,14 @@ Personal Nix flake for NixOS and macOS (nix-darwin), with Home Manager modules a
 - `flake.nix` — main flake outputs, system list, overlays, modules, and machines
 - `flake.lock` — pinned inputs
 
-### Machines
+### Hosts
 
-- `machines/siegfried/default.nix` — host configuration
-- `machines/siegfried/hardware-configuration.nix` — hardware config
+- `hosts/siegfried/default.nix` — host configuration
+- `hosts/siegfried/hardware-configuration.nix` — hardware config
 
 ### Modules
 
-- `modules/system/` — system-level NixOS modules
+- `modules/nixos/` — system-level NixOS modules and `hokum.*` options
 - `modules/home/` — Home Manager modules
 - `modules/users/` — user-specific modules
 
@@ -108,7 +108,7 @@ Personal Nix flake for NixOS and macOS (nix-darwin), with Home Manager modules a
 
 ## Common Commands
 
-- `make nixos` — rebuild and switch NixOS config
+- `make nixos` — rebuild and switch the config for the current hostname
 - `make nixos-oma` — rebuild with local omarchy flake override
 - `make macos` — rebuild nix-darwin config
 - `make update` — update flake inputs

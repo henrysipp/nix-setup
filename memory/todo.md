@@ -3,6 +3,7 @@
 ## Open
 
 - Debug GNOME Settings fingerprint panel missing on FW13 (check gnome-control-center fprint support, device enumeration, and required packages like usbutils/binutils).
+- Decide when to migrate remaining legacy `profiles/` modules fully into `modules/nixos/` instead of keeping them as transitional sources.
 
 ## Updates
 

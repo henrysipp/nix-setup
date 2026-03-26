@@ -4,7 +4,7 @@
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  services.desktopManager.gnome.sessionPath = [ pkgs.gdm ];
+  services.desktopManager.gnome.sessionPath = [pkgs.gdm];
   # Keep GNOME Keyring, but disable its GCR SSH agent so 1Password can own SSH_AUTH_SOCK.
   services.gnome.gcr-ssh-agent.enable = false;
 

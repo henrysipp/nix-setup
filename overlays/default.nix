@@ -1,7 +1,10 @@
 # This file defines overlays
 {inputs, ...}: {
   codex = _final: prev: let
-    mkCodex = {version, sha256}: let
+    mkCodex = {
+      version,
+      sha256,
+    }: let
       binary = "codex-x86_64-unknown-linux-musl";
       url = "https://github.com/openai/codex/releases/download/rust-v${version}/${binary}.tar.gz";
     in

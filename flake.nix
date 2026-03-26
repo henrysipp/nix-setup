@@ -21,33 +21,58 @@
 
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-
   };
 
   outputs = {
     self,
     nixpkgs,
-    home-manager,
     ...
   } @ inputs: let
-    inherit (self) outputs;
+    flakeLib = import ./lib {inherit inputs;};
     systems = [
       "x86_64-linux"
       "aarch64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
+    lib = flakeLib;
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    devShells = forAllSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          alejandra
+          git
+          nil
+          nixd
+        ];
+      };
+    });
+    checks = forAllSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      formatting =
+        pkgs.runCommand "nix-setup-formatting-check" {
+          nativeBuildInputs = [pkgs.alejandra];
+        } ''
+          cd ${self}
+          alejandra --check .
+          touch $out
+        '';
+    });
 
     overlays = import ./overlays {inherit inputs;};
-    systemModules = import ./modules/system;
-    homeModules = import ./modules/home;
+    nixosModules = {
+      default = import ./modules/nixos;
+    };
+    homeModules = {
+      default = import ./modules/home;
+    };
     nixosConfigurations = {
-      siegfried = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./machines/siegfried];
+      siegfried = flakeLib.mkNixosHost {
+        path = ./hosts/siegfried;
       };
-
     };
   };
 }

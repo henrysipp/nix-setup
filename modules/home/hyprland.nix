@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   wayland.windowManager.hyprland.settings = {
     # "$terminal" = "ghostty";
     # "$fileManager" = "nautilus --new-window";

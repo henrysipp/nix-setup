@@ -32,3 +32,28 @@ Context: Repository architecture
 Type: preference
 Rule: Optimize the repo for being solid, well-configured, and easily configurable across multiple hosts.
 Why: User wants a durable multi-host Nix architecture rather than a single-machine setup.
+## 2026-03-17 20:56
+Context: Module option namespace
+Type: preference
+Rule: Use the `hokum.*` namespace for custom NixOS/Home Manager options in this repo.
+Why: User explicitly requested `hokum` as the project option prefix.
+## 2026-03-17 20:58
+Context: User configuration architecture
+Type: preference
+Rule: Retain Home Manager as the user configuration layer; do not replace it with custom activation-script-based management.
+Why: User explicitly does not want Home Manager replaced.
+## 2026-03-17 21:05
+Context: Multi-host refactor
+Type: decision
+Rule: Structure the repo around `lib/host.nix`, `hosts/`, and `modules/nixos/` with `hokum.*` options, while keeping Home Manager as the user layer.
+Why: This is the chosen phase-one architecture for scaling the repo to multiple hosts cleanly.
+## 2026-03-18 17:24
+Context: System module assembly
+Type: decision
+Rule: Import Berkeley Mono directly from `modules/nixos/default.nix` and keep it separate from the Omarchy module.
+Why: The font should be available system-wide without pulling Hyprland-oriented Omarchy configuration into the active host.
+## 2026-03-25 00:00
+Context: Desktop app configuration placement
+Type: decision
+Rule: Re-enable and maintain active desktop applications in `modules/nixos/*`; treat `profiles/*` as transitional unless a host still imports them directly.
+Why: The live host graph uses `modules/nixos/*`, and editing legacy `profiles/*` alone would not affect the active system.

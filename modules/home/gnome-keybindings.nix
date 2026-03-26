@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   dconf = {
     enable = true;
     settings = {

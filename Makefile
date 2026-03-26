@@ -1,12 +1,14 @@
 
+HOST ?= $(shell hostname)
+
 update: 
 	sudo nix flake update
 	
 nixos:
-	sudo nixos-rebuild switch --flake . --impure
+	sudo nixos-rebuild switch --flake .#$(HOST) --impure
 
 nixos-oma:
-	sudo nixos-rebuild switch --flake .# --override-input omarchy path:/home/henrysipp/Developer/omarchy-nix
+	sudo nixos-rebuild switch --flake .#$(HOST) --override-input omarchy path:/home/henrysipp/Developer/omarchy-nix
 
 macos:
 	sudo darwin-rebuild switch --flake .#
