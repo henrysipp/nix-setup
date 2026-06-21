@@ -10,10 +10,12 @@
   time.timeZone = "America/Chicago";
   nixpkgs = {
     overlays = [
-      # outputs.overlays.additions
-      # outputs.overlays.modifications
-      outputs.overlays.codex
-      outputs.overlays.unstable-packages
+      # outputs.overlays.overlay-additions
+      # outputs.overlays.overlay-modifications
+      outputs.overlays.overlay-codex
+      outputs.overlays.overlay-cursor
+      outputs.overlays.overlay-adwaita-hyprcursor
+      outputs.overlays.overlay-unstable-packages
     ];
     config = {
       allowUnfree = true;

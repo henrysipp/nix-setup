@@ -7,6 +7,12 @@
   options.hokum.desktop.enable = lib.mkEnableOption "desktop workstation defaults";
 
   config = lib.mkIf config.hokum.desktop.enable {
+    networking.networkmanager.enable = lib.mkDefault true;
+
+    services.resolved.enable = true;
+
+    fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
+
     home-manager.backupFileExtension = "backup";
     environment.systemPackages = [
       pkgs.unstable.discord

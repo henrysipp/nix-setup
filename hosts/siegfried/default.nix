@@ -11,7 +11,7 @@
   ];
 
   hokum = {
-    desktop.gnome.enable = true;
+    desktop.hyprland.enable = true;
     dev.enable = true;
     packages.enable = true;
     users.henrysipp.enable = true;
@@ -38,10 +38,10 @@
   boot.loader = {
     timeout = 5;
     efi.canTouchEfiVariables = true;
-    systemd-boot.enable = lib.mkForce false;
+    systemd-boot.enable = true; # lib.mkForce false;
   };
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
-  };
+  # boot.lanzaboote = {
+  #  enable = true;
+  #  pkiBundle = "/var/lib/sbctl";
+  # };
 }

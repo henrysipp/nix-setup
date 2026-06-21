@@ -12,7 +12,10 @@
 
     environment.systemPackages = with pkgs; [
       ddev
+      ghostty
       unstable.devenv
+      vscode
+      code-cursor
     ];
   };
 }

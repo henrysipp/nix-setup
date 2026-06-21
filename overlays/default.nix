@@ -1,46 +1,17 @@
 # This file defines overlays
 {inputs, ...}: {
-  codex = _final: prev: let
-    mkCodex = {
-      version,
-      sha256,
-    }: let
-      binary = "codex-x86_64-unknown-linux-musl";
-      url = "https://github.com/openai/codex/releases/download/rust-v${version}/${binary}.tar.gz";
-    in
-      prev.stdenv.mkDerivation {
-        pname = "codex";
-        inherit version;
+  overlay-codex = _final: prev: {
+    codex = prev.callPackage ./codex {};
+  };
 
-        src = prev.fetchurl {
-          inherit url;
-          hash = sha256;
-        };
-
-        dontConfigure = true;
-        dontBuild = true;
-
-        unpackPhase = ''
-          tar -xzf $src
-        '';
-
-        installPhase = ''
-          install -Dm755 ${binary} $out/bin/codex
-        '';
-
-        meta = with prev.lib; {
-          description = "OpenAI Codex CLI";
-          homepage = "https://github.com/openai/codex";
-          license = licenses.asl20;
-          platforms = ["x86_64-linux"];
-        };
-      };
-  in {
-    codexFromRelease = mkCodex;
-    codex = mkCodex {
-      version = "0.115.0";
-      sha256 = "sha256-/HedTrMZksLYDnboSHUGMxmVnxrNepBECZh3bzK83QA=";
+  overlay-cursor = _final: prev: {
+    code-cursor = prev.callPackage ./code-cursor {
+      inherit (prev) buildVscode;
     };
+  };
+
+  overlay-adwaita-hyprcursor = final: prev: {
+    adwaita-hyprcursor = final.callPackage ./adwaita-hyprcursor {};
   };
 
   # This one brings our custom packages from the 'pkgs' directory
@@ -57,7 +28,7 @@
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
-  unstable-packages = final: _prev: {
+  overlay-unstable-packages = final: _prev: {
     unstable = import inputs.nixpkgs-unstable {
       system = final.stdenv.hostPlatform.system;
       config.allowUnfree = true;

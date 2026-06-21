@@ -1,12 +1,12 @@
 {
   description = "Henrysipp's Nix Config";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Note: Currently pinned to 25.11
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    # 26.05 required for Hyprland Lua config generation (configType = "lua")
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
@@ -29,6 +29,7 @@
     ...
   } @ inputs: let
     flakeLib = import ./lib {inherit inputs;};
+    localOverlays = import ./overlays {inherit inputs;};
     systems = [
       "x86_64-linux"
       "aarch64-darwin"
@@ -38,15 +39,25 @@
     lib = flakeLib;
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
     devShells = forAllSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [
+          localOverlays.overlay-cursor
+        ];
+      };
     in {
       default = pkgs.mkShell {
-        packages = with pkgs; [
-          alejandra
-          git
-          nil
-          nixd
-        ];
+        packages = with pkgs;
+          [
+            alejandra
+            git
+            nil
+            nixd
+          ]
+          ++ nixpkgs.lib.optionals (system == "x86_64-linux") [
+            code-cursor
+          ];
       };
     });
     checks = forAllSystems (system: let
@@ -62,7 +73,7 @@
         '';
     });
 
-    overlays = import ./overlays {inherit inputs;};
+    overlays = localOverlays;
     nixosModules = {
       default = import ./modules/nixos;
     };
