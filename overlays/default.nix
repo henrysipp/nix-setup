@@ -14,6 +14,10 @@
     adwaita-hyprcursor = final.callPackage ./adwaita-hyprcursor {};
   };
 
+  overlay-helium-browser = _final: prev: {
+    helium-browser = prev.callPackage ./helium-browser {};
+  };
+
   # This one brings our custom packages from the 'pkgs' directory
   #   additions = final: _prev: import ../pkgs final.pkgs;
 

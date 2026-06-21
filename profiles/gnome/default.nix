@@ -18,6 +18,7 @@
     gnomeExtensions.arc-menu
     gnomeExtensions.paperwm
     gnome-tweaks
+    gnome-themes-extra
     vscode
   ];
 }

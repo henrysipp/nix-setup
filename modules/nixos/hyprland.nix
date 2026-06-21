@@ -20,10 +20,15 @@
 
     fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
 
+    hardware.bluetooth = {
+      enable = lib.mkDefault true;
+      powerOnBoot = lib.mkDefault true;
+    };
+
     environment.systemPackages = [
       pkgs.kdePackages.dolphin
-      pkgs.wofi
       pkgs.playerctl
+      pkgs.bluez
     ];
 
     services.pipewire = {
@@ -31,6 +36,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
   };
 }

@@ -1,11 +1,9 @@
-{...}: {
-  wayland.windowManager.hyprland.settings = {
-    browser = {
-      _var = "firefox";
-    };
-
-    passwordManager = {
-      _var = "1password";
-    };
+{lib, ...}: let
+  h = import ../../../lib/hyprland.nix {inherit lib;};
+in {
+  wayland.windowManager.hyprland.settings = h.vars {
+    browser = "firefox";
+    fileManager = "dolphin";
+    passwordManager = "1password";
   };
 }

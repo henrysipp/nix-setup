@@ -13,5 +13,9 @@
   home.homeDirectory = "/home/henrysipp";
   home.stateVersion = "25.05";
 
-  # Keep user-specific overrides in this file.
+  # Static files under files/ are deployed into $HOME with the same layout.
+  home.file."Pictures/Wallpapers" = {
+    source = ./files/Pictures/Wallpapers;
+    recursive = true;
+  };
 }

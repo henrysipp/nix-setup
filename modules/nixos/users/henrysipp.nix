@@ -15,6 +15,7 @@
 
       extraGroups = [
         "audio"
+        "bluetooth"
         "input"
         "networkmanager"
         "sound"

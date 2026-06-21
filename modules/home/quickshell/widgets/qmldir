@@ -1,0 +1,34 @@
+module widgets
+
+singleton Theme 1.0 theme/Theme.qml
+singleton ShellState 1.0 state/ShellState.qml
+
+Anim 1.0 utils/Anim.qml
+
+Bar 1.0 shell/Bar.qml
+Clock 1.0 shell/Clock.qml
+Workspaces 1.0 shell/Workspaces.qml
+SystemTray 1.0 shell/SystemTray.qml
+BarDivider 1.0 shell/BarDivider.qml
+
+PopoutClipWrapper 1.0 popout/PopoutClipWrapper.qml
+PopoutWrapper 1.0 popout/PopoutWrapper.qml
+PopoutContent 1.0 popout/PopoutContent.qml
+
+WifiStatus 1.0 status/WifiStatus.qml
+BluetoothStatus 1.0 status/BluetoothStatus.qml
+VolumeStatus 1.0 status/VolumeStatus.qml
+PowerStatus 1.0 status/PowerStatus.qml
+
+WifiPanel 1.0 panels/WifiPanel.qml
+WifiNetworkRow 1.0 panels/WifiNetworkRow.qml
+BluetoothPanel 1.0 panels/BluetoothPanel.qml
+BluetoothDeviceRow 1.0 panels/BluetoothDeviceRow.qml
+VolumePanel 1.0 panels/VolumePanel.qml
+PowerPanel 1.0 panels/PowerPanel.qml
+PowerProfileRow 1.0 panels/PowerProfileRow.qml
+
+Launcher 1.0 launcher/Launcher.qml
+LauncherRow 1.0 launcher/LauncherRow.qml
+
+Osd 1.0 osd/Osd.qml

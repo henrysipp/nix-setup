@@ -15,6 +15,7 @@
       outputs.overlays.overlay-codex
       outputs.overlays.overlay-cursor
       outputs.overlays.overlay-adwaita-hyprcursor
+      outputs.overlays.overlay-helium-browser
       outputs.overlays.overlay-unstable-packages
     ];
     config = {

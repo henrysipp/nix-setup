@@ -4,6 +4,7 @@
   lib,
   ...
 }: let
+  h = import ../../../lib/hyprland.nix {inherit lib;};
   cfg = osConfig.hokum.desktop.hyprland;
   cursorTheme = "Adwaita";
   cursorSize = 24;
@@ -34,36 +35,14 @@ in {
     ];
 
     settings = {
-      env = [
-        {
-          _args = [
-            "HYPRCURSOR_THEME"
-            cursorTheme
-          ];
-        }
-        {
-          _args = [
-            "HYPRCURSOR_SIZE"
-            (toString cursorSize)
-          ];
-        }
-        {
-          _args = [
-            "XCURSOR_THEME"
-            cursorTheme
-          ];
-        }
-        {
-          _args = [
-            "XCURSOR_SIZE"
-            (toString cursorSize)
-          ];
-        }
-      ];
-
-      config.cursor = {
-        enable_hyprcursor = true;
+      env = h.envs {
+        HYPRCURSOR_THEME = cursorTheme;
+        HYPRCURSOR_SIZE = cursorSize;
+        XCURSOR_THEME = cursorTheme;
+        XCURSOR_SIZE = cursorSize;
       };
+
+      config.cursor.enable_hyprcursor = true;
     };
   };
 }
