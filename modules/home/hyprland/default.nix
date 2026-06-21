@@ -11,6 +11,7 @@ in {
     ./cursor.nix
     ./media-binds.nix
     ./ghostty.nix
+    ./input.nix
     ./looknfeel.nix
     ./vars.nix
     ./waybar.nix

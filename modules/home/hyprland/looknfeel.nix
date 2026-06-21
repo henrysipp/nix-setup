@@ -5,12 +5,17 @@
   # Tokyo Night has no theme-specific hyprland.lua; omarchy applies accent via template.
   activeBorderColor = "rgb(7aa2f7)";
   inactiveBorderColor = "rgba(595959aa)";
+
+  # Hyprland applies gaps_in on both sides of a split, so the visual gap between
+  # windows is 2 * gaps_in. Match gaps_out for even spacing at edges and splits.
+  gapInner = 4;
+  gapOuter = 8;
 in {
   wayland.windowManager.hyprland.settings = {
     config = {
       general = {
-        gaps_in = 8;
-        gaps_out = 8;
+        gaps_in = gapInner;
+        gaps_out = gapOuter;
         border_size = 2;
         col = {
           active_border = activeBorderColor;
@@ -87,6 +92,7 @@ in {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         disable_scale_notification = true;
+        middle_click_paste = false;
         focus_on_activate = true;
         anr_missed_pings = 3;
         on_focus_under_fullscreen = 1;
@@ -280,7 +286,9 @@ in {
       }
       {
         leaf = "workspaces";
-        enabled = false;
+        enabled = true;
+        speed = 3;
+        bezier = "easeOutQuint";
       }
       {
         leaf = "specialWorkspace";

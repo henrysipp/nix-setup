@@ -1,8 +1,7 @@
 {...}: {
   imports = [
     # Add home-manager modules here.
-    ./gnome-desktop.nix
-    ./gnome-keybindings.nix
+    ./gnome
     ./hyprland
     ./programs.nix
   ];

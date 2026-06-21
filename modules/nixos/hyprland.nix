@@ -21,6 +21,7 @@
     fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
 
     environment.systemPackages = [
+      pkgs.kdePackages.dolphin
       pkgs.wofi
       pkgs.playerctl
     ];

@@ -1,7 +1,9 @@
 {lib, ...}: let
   lua = lib.generators.mkLuaInline;
 
-  gapsOn = 8;
+  # Keep in sync with looknfeel.nix gapInner/gapOuter.
+  gapInner = 4;
+  gapOuter = 8;
 
   arrowBinds =
     lib.flatten (lib.map (
@@ -89,7 +91,7 @@ in {
                 hl.config({ general = { gaps_in = 0, gaps_out = 0 } })
                 state.on = false
               else
-                hl.config({ general = { gaps_in = ${toString gapsOn}, gaps_out = ${toString gapsOn} } })
+                hl.config({ general = { gaps_in = ${toString gapInner}, gaps_out = ${toString gapOuter} } })
                 state.on = true
               end
             end
@@ -113,6 +115,36 @@ in {
       }
       {
         _args = [
+          "SUPER + J"
+          (lua ''hl.dsp.layout("togglesplit")'')
+        ];
+      }
+      {
+        _args = [
+          "SUPER + minus"
+          (lua ''hl.dsp.window.resize({ x = -100, y = 0, relative = true })'')
+        ];
+      }
+      {
+        _args = [
+          "SUPER + equal"
+          (lua ''hl.dsp.window.resize({ x = 100, y = 0, relative = true })'')
+        ];
+      }
+      {
+        _args = [
+          "SUPER + SHIFT + minus"
+          (lua ''hl.dsp.window.resize({ x = 0, y = -100, relative = true })'')
+        ];
+      }
+      {
+        _args = [
+          "SUPER + SHIFT + equal"
+          (lua ''hl.dsp.window.resize({ x = 0, y = 100, relative = true })'')
+        ];
+      }
+      {
+        _args = [
           "SUPER + SHIFT + B"
           (lua ''hl.dsp.exec_cmd(browser)'')
         ];
@@ -121,6 +153,13 @@ in {
         _args = [
           "SUPER + SHIFT + slash"
           (lua ''hl.dsp.exec_cmd(passwordManager)'')
+        ];
+      }
+      {
+        _args = [
+          "CTRL + mouse:272"
+          (lua ''hl.dsp.window.drag()'')
+          {mouse = true;}
         ];
       }
     ]
