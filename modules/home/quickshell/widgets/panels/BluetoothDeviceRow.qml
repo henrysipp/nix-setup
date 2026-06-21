@@ -36,33 +36,29 @@ Item {
     anchors.fill: parent
     spacing: 8
 
-    Text {
+    IconText {
       anchors.verticalCenter: parent.verticalCenter
       width: 16
       text: root.device.connected ? "󰄬" : root.deviceIcon
       color: root.device.connected ? Theme.accent : Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
       horizontalAlignment: Text.AlignHCenter
     }
 
-    Text {
+    ShellText {
       anchors.verticalCenter: parent.verticalCenter
       width: parent.width - 88
       elide: Text.ElideRight
       text: root.loading ? `${device.name}…` : device.name
+      variant: root.device.connected ? "body1Emphasized" : "body1"
       color: root.device.connected ? Theme.accent : Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
-    Text {
+    ShellText {
       anchors.verticalCenter: parent.verticalCenter
       visible: root.device.batteryAvailable
       text: `${Math.round(root.device.battery * 100)}%`
+      variant: "body1"
       color: root.device.battery < 0.2 ? Theme.error : Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
     Item {
@@ -70,12 +66,10 @@ Item {
       width: 28
       height: parent.height
 
-      Text {
+      IconText {
         anchors.centerIn: parent
         text: root.device.connected ? "󰌸" : "󰌺"
         color: root.loading ? Theme.muted : Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize
       }
 
       MouseArea {
@@ -92,12 +86,10 @@ Item {
       width: 20
       height: parent.height
 
-      Text {
+      IconText {
         anchors.centerIn: parent
         text: "󰆴"
         color: Theme.muted
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize
       }
 
       MouseArea {

@@ -25,7 +25,7 @@ Item {
     return Theme.foreground
   }
 
-  Text {
+  IconText {
     anchors.centerIn: parent
     anchors.verticalCenterOffset: -1
     text: {
@@ -36,7 +36,6 @@ Item {
       return "󰂯"
     }
     color: root.iconColor
-    font.family: Theme.monoFont
     font.pixelSize: Theme.barStatusIconSize
   }
 

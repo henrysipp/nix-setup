@@ -20,7 +20,7 @@ Item {
     return Theme.foreground
   }
 
-  Text {
+  IconText {
     id: volumeIcon
     anchors.centerIn: parent
     anchors.verticalCenterOffset: -1
@@ -37,7 +37,6 @@ Item {
       return icons[2]
     }
     color: root.iconColor
-    font.family: Theme.monoFont
     font.pixelSize: Theme.barStatusIconSize
   }
 

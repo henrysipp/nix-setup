@@ -6,8 +6,11 @@
   cfg = osConfig.hokum.desktop.hyprland;
 in {
   imports = lib.optionals cfg.enable [
+    ../theme.nix
     ../ghostty.nix
     ../quickshell
+    ./firefox.nix
+    ./stylix.nix
     ./autostart.nix
     ./binds.nix
     ./cursor.nix

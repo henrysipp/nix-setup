@@ -143,16 +143,14 @@ Scope {
             radius: 6
             color: Theme.muted
 
-            TextInput {
+            ShellTextInput {
               id: searchInput
               anchors.fill: parent
               anchors.margins: 8
               focus: true
               text: root.searchText
+              variant: "body1"
               color: Theme.foreground
-              font.family: Theme.monoFont
-              font.pixelSize: Theme.fontSize
-              selectionColor: Theme.accent
               clip: true
               onTextChanged: root.searchText = text
 
@@ -174,13 +172,12 @@ Scope {
             }
           }
 
-          Text {
+          ShellText {
             width: parent.width
             visible: filteredEntries.length === 0
             text: searchText.trim().length === 0 ? "No applications found" : "No matches"
+            variant: "body1"
             color: Theme.muted
-            font.family: Theme.monoFont
-            font.pixelSize: Theme.fontSize
             horizontalAlignment: Text.AlignHCenter
           }
 

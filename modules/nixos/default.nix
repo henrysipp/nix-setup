@@ -6,6 +6,7 @@
     ./gnome.nix
     ./hyprland.nix
     ./packages.nix
+    ./stylix.nix
     ./users/henrysipp.nix
     ../system/berkeley-mono
   ];

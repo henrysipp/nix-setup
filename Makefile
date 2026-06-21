@@ -5,7 +5,7 @@ update:
 	sudo nix flake update
 	
 nixos:
-	sudo nixos-rebuild switch --flake .#$(HOST) --impure
+	git add -A && sudo nixos-rebuild switch --flake .#$(HOST) --impure
 
 nixos-oma:
 	sudo nixos-rebuild switch --flake .#$(HOST) --override-input omarchy path:/home/henrysipp/Developer/omarchy-nix

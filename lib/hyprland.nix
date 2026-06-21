@@ -1,10 +1,22 @@
 # Helpers for Home Manager Hyprland Lua config (configType = "lua").
-{lib}: let
+{lib, ...}: let
   inherit
-    (import ./hyprland-theme.nix)
-    activeBorderColor
+    (import ./hyprland-theme.nix {
+      colors = {
+        withHashtag = {
+          base00 = "#1A1B26";
+          base03 = "#444B6A";
+          base0D = "#2AC3DE";
+        };
+        base00 = "1a1b26";
+        base03 = "444b6a";
+        base0D = "2ac3de";
+      };
+    })
     gapInner
     gapOuter
+    rounding
+    activeBorderColor
     inactiveBorderColor
     shadowColor
     ;
@@ -248,6 +260,7 @@ in {
     requireApps
     gapInner
     gapOuter
+    rounding
     activeBorderColor
     inactiveBorderColor
     shadowColor

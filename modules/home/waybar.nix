@@ -1,15 +1,15 @@
 # Simple Waybar config based on omarchy/config/waybar.
 # Omits weather, omarchy menu, update checks, and status indicators for now.
 {
+  config,
   osConfig,
   lib,
   ...
 }: let
   cfg = osConfig.hokum.desktop.hyprland;
-
-  # Tokyo Night — matches modules/home/hyprland/looknfeel.nix
-  background = "#1a1b26";
-  foreground = "#a9b1d6";
+  colors = config.hokum.theme.colors;
+  background = colors.withHashtag.base00;
+  foreground = colors.withHashtag.base05;
 in {
   programs.waybar = lib.mkIf cfg.enable {
     enable = true;

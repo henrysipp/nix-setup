@@ -140,34 +140,22 @@ Scope {
           anchors.margins: 10
           spacing: 10
 
-          Text {
+          IconText {
             text: root.mode === "volume"
               ? (root.muted ? "󰝟" : "󰕾")
               : "󰃠"
             color: Theme.foreground
-            font.family: Theme.monoFont
-            font.pixelSize: Theme.fontSize
           }
 
-          Rectangle {
+          ProgressBar {
             Layout.fillWidth: true
-            implicitHeight: 6
-            radius: 3
-            color: Theme.muted
-
-            Rectangle {
-              height: parent.height
-              width: parent.width * Math.max(0, Math.min(1, root.level))
-              radius: parent.radius
-              color: Theme.accent
-            }
+            value: root.level
           }
 
-          Text {
+          ShellText {
             text: Math.round(root.level * 100)
+            variant: "body1"
             color: Theme.foreground
-            font.family: Theme.monoFont
-            font.pixelSize: Theme.fontSize
             Layout.preferredWidth: 28
             horizontalAlignment: Text.AlignRight
           }

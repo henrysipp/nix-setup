@@ -29,33 +29,28 @@ Item {
     anchors.fill: parent
     spacing: 8
 
-    Text {
+    IconText {
       anchors.verticalCenter: parent.verticalCenter
       width: 16
       text: root.network.connected ? "󰄬" : (root.needsPassword ? "󰌾" : root.signalIcons[root.signalIndex])
       color: root.network.connected ? Theme.accent : Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
       horizontalAlignment: Text.AlignHCenter
     }
 
-    Text {
+    ShellText {
       anchors.verticalCenter: parent.verticalCenter
       width: parent.width - 52
       elide: Text.ElideRight
       text: root.network.name
+      variant: root.network.connected ? "body1Emphasized" : "body1"
       color: root.network.connected ? Theme.accent : Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
-    Text {
+    IconText {
       anchors.verticalCenter: parent.verticalCenter
       visible: !root.network.connected
       text: root.signalIcons[root.signalIndex]
       color: Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
   }
 

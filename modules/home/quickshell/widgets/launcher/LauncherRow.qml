@@ -43,14 +43,13 @@ Item {
       }
     }
 
-    Text {
+    ShellText {
       width: Math.max(0, row.width - Theme.launcherIconSize - row.spacing)
       anchors.verticalCenter: parent.verticalCenter
       elide: Text.ElideRight
       text: root.entry.name
+      variant: "body1"
       color: root.highlighted ? Theme.accent : Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
   }
 

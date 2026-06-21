@@ -44,13 +44,12 @@ Item {
       width: parent.width
       height: Theme.barHeight
 
-      Text {
+      ShellText {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         text: "Bluetooth"
+        variant: "label"
         color: Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize + 1
       }
 
       Item {
@@ -59,13 +58,12 @@ Item {
         width: toggleLabel.implicitWidth
         height: parent.height
 
-        Text {
+        ShellText {
           id: toggleLabel
           anchors.centerIn: parent
           text: root.enabled ? "On" : "Off"
+          variant: "body1"
           color: root.enabled ? Theme.accent : Theme.muted
-          font.family: Theme.monoFont
-          font.pixelSize: Theme.fontSize
         }
 
         MouseArea {
@@ -84,13 +82,12 @@ Item {
       height: Theme.barHeight
       visible: root.available && root.enabled
 
-      Text {
+      ShellText {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         text: "Discovering"
+        variant: "body1"
         color: Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize
       }
 
       Item {
@@ -99,13 +96,12 @@ Item {
         width: discoverLabel.implicitWidth
         height: parent.height
 
-        Text {
+        ShellText {
           id: discoverLabel
           anchors.centerIn: parent
           text: adapter?.discovering ? "On" : "Off"
+          variant: "body1"
           color: adapter?.discovering ? Theme.accent : Theme.muted
-          font.family: Theme.monoFont
-          font.pixelSize: Theme.fontSize
         }
 
         MouseArea {
@@ -119,40 +115,36 @@ Item {
       }
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: !root.available
       text: "No Bluetooth adapter found"
+      variant: "body1"
       color: Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: root.available && !root.enabled
       text: "Bluetooth is disabled"
+      variant: "body1"
       color: Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: root.available && root.enabled && adapter?.discovering && sortedDevices.length === 0
       text: "Scanning…"
+      variant: "body1"
       color: Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: root.available && root.enabled && !adapter?.discovering && sortedDevices.length === 0
       text: "No devices found"
+      variant: "body1"
       color: Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
     Flickable {

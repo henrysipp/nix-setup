@@ -63,7 +63,7 @@ Item {
 
   Component.onCompleted: syncBattery()
 
-  Text {
+  IconText {
     id: batteryIcon
     anchors.centerIn: parent
     anchors.verticalCenterOffset: -1
@@ -80,7 +80,6 @@ Item {
       return defaultIcons[index]
     }
     color: root.iconColor
-    font.family: Theme.monoFont
     font.pixelSize: Theme.barStatusIconSize
   }
 

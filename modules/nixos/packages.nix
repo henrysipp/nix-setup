@@ -38,9 +38,9 @@
       # GUIs
       chromium
       firefox
-      helium-browser
+      # helium-browser
       jetbrains-toolbox
-      obsidian
+      # obsidian
       slack
       vlc
 

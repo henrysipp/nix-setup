@@ -1,8 +1,7 @@
-# Omarchy look and feel with Tokyo Night theme colors.
-# Base: omarchy/default/hypr/looknfeel.lua
-# Theme: omarchy/themes/tokyo-night/colors.toml + default/themed/hyprland.lua.tpl
-{lib, ...}: let
+# Omarchy look and feel; colors from the active desktop theme.
+{config, lib, ...}: let
   h = import ../../../lib/hyprland.nix {inherit lib;};
+  theme = import ../../../lib/hyprland-theme.nix {colors = config.hokum.theme.colors;};
 in {
   wayland.windowManager.hyprland.settings = {
     config = {
@@ -11,8 +10,8 @@ in {
         gaps_out = h.gapOuter;
         border_size = 0;
         col = {
-          active_border = h.activeBorderColor;
-          inactive_border = h.inactiveBorderColor;
+          active_border = theme.activeBorderColor;
+          inactive_border = theme.inactiveBorderColor;
         };
         resize_on_border = false;
         allow_tearing = false;
@@ -20,12 +19,12 @@ in {
       };
 
       decoration = {
-        rounding = 8;
+        rounding = theme.rounding;
         shadow = {
           enabled = true;
           range = 2;
           render_power = 3;
-          color = h.shadowColor;
+          color = theme.shadowColor;
         };
         blur = {
           enabled = true;
@@ -39,8 +38,8 @@ in {
 
       group = {
         col = {
-          border_active = h.activeBorderColor;
-          border_inactive = h.inactiveBorderColor;
+          border_active = theme.activeBorderColor;
+          border_inactive = theme.inactiveBorderColor;
         };
         groupbar = {
           font_size = 12;

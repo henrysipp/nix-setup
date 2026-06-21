@@ -5,9 +5,11 @@
   ...
 }: let
   cfg = osConfig.hokum.desktop.hyprland;
-  wallpaperPath = "${config.home.homeDirectory}/Pictures/Wallpapers/F01_Mac.png";
+  stylixLib = import ../../../lib/stylix.nix {inherit lib;};
+  wallpaper = stylixLib.wallpaper;
+  wallpaperPath = "${config.home.homeDirectory}/Pictures/Wallpapers/${stylixLib.theme}/${wallpaper.name}";
 in {
-  services.hyprpaper = lib.mkIf cfg.enable {
+  services.hyprpaper = lib.mkIf (cfg.enable && wallpaper != null) {
     enable = true;
     settings = {
       splash = false;

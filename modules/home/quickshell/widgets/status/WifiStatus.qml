@@ -26,7 +26,7 @@ Item {
     return Theme.foreground
   }
 
-  Text {
+  IconText {
     id: wifiIcon
     anchors.centerIn: parent
     anchors.verticalCenterOffset: -1
@@ -40,7 +40,6 @@ Item {
       return icons[index]
     }
     color: root.iconColor
-    font.family: Theme.monoFont
     font.pixelSize: Theme.barStatusIconSize
   }
 

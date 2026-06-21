@@ -44,32 +44,29 @@ Item {
       width: parent.width
       height: Theme.barHeight
 
-      Text {
+      ShellText {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         text: "Power"
+        variant: "label"
         color: Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize + 1
       }
 
-      Text {
+      ShellText {
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         text: root.batteryReady ? `${root.capacity}% · ${root.statusLabel}` : "Battery unavailable"
+        variant: "body1"
         color: Theme.muted
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize
       }
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: PowerProfiles.degradationReason !== PerformanceDegradationReason.None
       text: "Performance degraded: " + PerformanceDegradationReason.toString(PowerProfiles.degradationReason)
+      variant: "body1"
       color: Theme.accent
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
       wrapMode: Text.WordWrap
     }
 

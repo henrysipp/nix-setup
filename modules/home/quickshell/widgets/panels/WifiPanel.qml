@@ -73,13 +73,12 @@ Item {
       width: parent.width
       height: Theme.barHeight
 
-      Text {
+      ShellText {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         text: "Wi-Fi"
+        variant: "label"
         color: Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize + 1
       }
 
       Item {
@@ -88,13 +87,12 @@ Item {
         width: toggleLabel.implicitWidth
         height: parent.height
 
-        Text {
+        ShellText {
           id: toggleLabel
           anchors.centerIn: parent
           text: Networking.wifiEnabled ? "On" : "Off"
+          variant: "body1"
           color: Networking.wifiEnabled ? Theme.accent : Theme.muted
-          font.family: Theme.monoFont
-          font.pixelSize: Theme.fontSize
         }
 
         MouseArea {
@@ -105,32 +103,29 @@ Item {
       }
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: wiredDevice?.connected ?? false
       text: "Ethernet connected"
+      variant: "body1"
       color: Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
       wrapMode: Text.WordWrap
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: !(wiredDevice?.connected ?? false) && !Networking.wifiEnabled
       text: "Wi-Fi is disabled"
+      variant: "body1"
       color: Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
-    Text {
+    ShellText {
       width: parent.width
       visible: !(wiredDevice?.connected ?? false) && Networking.wifiEnabled && (wifiDevice?.scannerEnabled ?? false) && sortedNetworks.length === 0
       text: "Scanning…"
+      variant: "body1"
       color: Theme.muted
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
 
     Flickable {
@@ -161,12 +156,11 @@ Item {
       visible: passwordNetwork !== null
       spacing: 6
 
-      Text {
+      ShellText {
         width: parent.width
         text: "Password for " + (passwordNetwork?.name ?? "")
+        variant: "body1"
         color: Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize
         elide: Text.ElideRight
       }
 
@@ -180,16 +174,14 @@ Item {
           radius: 4
           color: Theme.muted
 
-          TextInput {
+          ShellTextInput {
             id: passwordInput
             anchors.fill: parent
             anchors.margins: 6
             text: root.password
             echoMode: TextInput.Password
+            variant: "body1"
             color: Theme.foreground
-            font.family: Theme.monoFont
-            font.pixelSize: Theme.fontSize
-            selectionColor: Theme.accent
             onTextChanged: root.password = text
             Keys.onReturnPressed: root.submitPassword()
           }
@@ -199,12 +191,11 @@ Item {
           width: 56
           height: 28
 
-          Text {
+          ShellText {
             anchors.centerIn: parent
             text: "Join"
+            variant: "body1Emphasized"
             color: Theme.accent
-            font.family: Theme.monoFont
-            font.pixelSize: Theme.fontSize
           }
 
           MouseArea {

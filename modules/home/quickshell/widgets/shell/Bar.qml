@@ -86,14 +86,13 @@ Item {
     implicitWidth: clockText.implicitWidth + 14
     implicitHeight: clockText.implicitHeight + 8
 
-    Text {
+    ShellText {
       id: clockText
       anchors.centerIn: parent
       anchors.verticalCenterOffset: -1
       text: clockTimer.hh + ":" + clockTimer.mm
+      variant: "body1"
       color: Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
       font.letterSpacing: 2
       font.weight: Font.Light
     }

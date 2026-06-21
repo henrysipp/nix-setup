@@ -15,10 +15,16 @@ in {
         local state = rawget(_G, "_hokum_gaps") or { on = true }
         _G._hokum_gaps = state
         if state.on then
-          hl.config({ general = { gaps_in = 0, gaps_out = 0 } })
+          hl.config({
+            general = { gaps_in = 0, gaps_out = 0 },
+            decoration = { rounding = 0 },
+          })
           state.on = false
         else
-          hl.config({ general = { gaps_in = ${toString h.gapInner}, gaps_out = ${toString h.gapOuter} } })
+          hl.config({
+            general = { gaps_in = ${toString h.gapInner}, gaps_out = ${toString h.gapOuter} },
+            decoration = { rounding = ${toString h.rounding} },
+          })
           state.on = true
         end
       '')

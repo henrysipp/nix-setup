@@ -19,24 +19,21 @@ Item {
     anchors.fill: parent
     spacing: 8
 
-    Text {
+    IconText {
       anchors.verticalCenter: parent.verticalCenter
       width: 16
       text: root.selected ? "󰄬" : root.icon
       color: root.selected ? Theme.accent : Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
       horizontalAlignment: Text.AlignHCenter
     }
 
-    Text {
+    ShellText {
       anchors.verticalCenter: parent.verticalCenter
       width: parent.width - 24
       elide: Text.ElideRight
       text: root.label
+      variant: root.selected ? "body1Emphasized" : "body1"
       color: root.selected ? Theme.accent : Theme.foreground
-      font.family: Theme.monoFont
-      font.pixelSize: Theme.fontSize
     }
   }
 

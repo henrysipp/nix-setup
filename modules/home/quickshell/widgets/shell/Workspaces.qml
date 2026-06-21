@@ -36,15 +36,15 @@ Row {
       property bool isActive: Hyprland.focusedWorkspace?.id === workspaceId
       property bool present: !!workspace
 
-      Text {
+      ShellText {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: -1
         text: root.labels[index]
+        variant: "body1"
         color: isActive ? Theme.accent : (present ? Theme.foreground : Theme.muted)
         opacity: isActive ? 1 : (present ? 0.75 : 0.35)
-        font.family: Theme.cjkFont
-        font.pixelSize: isActive ? 14 : 12
+        font.pixelSize: isActive ? Typography.titleFontSize : Typography.body1FontSize
         font.weight: Font.Light
         Behavior on color { ColorAnimation { duration: 120 } }
         Behavior on opacity { NumberAnimation { duration: 120 } }

@@ -1,5 +1,6 @@
 import Quickshell.Services.Pipewire
 import QtQuick
+import QtQuick.Layouts
 import ".."
 
 Item {
@@ -34,13 +35,12 @@ Item {
       width: parent.width
       height: Theme.barHeight
 
-      Text {
+      ShellText {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         text: "Sound"
+        variant: "label"
         color: Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize + 1
       }
 
       Item {
@@ -49,13 +49,12 @@ Item {
         width: muteLabel.implicitWidth
         height: parent.height
 
-        Text {
+        ShellText {
           id: muteLabel
           anchors.centerIn: parent
           text: root.muted ? "Muted" : "On"
+          variant: "body1"
           color: root.muted ? Theme.muted : Theme.accent
-          font.family: Theme.monoFont
-          font.pixelSize: Theme.fontSize
         }
 
         MouseArea {
@@ -69,49 +68,23 @@ Item {
       }
     }
 
-    Row {
+    RowLayout {
       width: parent.width
       spacing: 10
 
-      Item {
-        width: parent.width - 36
-        height: 24
-
-        Rectangle {
-          id: track
-          anchors.verticalCenter: parent.verticalCenter
-          width: parent.width
-          height: 6
-          radius: 3
-          color: Theme.muted
-
-          Rectangle {
-            height: parent.height
-            width: parent.width * Math.max(0, Math.min(1, root.volume))
-            radius: parent.radius
-            color: Theme.accent
-          }
-        }
-
-        MouseArea {
-          anchors.fill: parent
-          cursorShape: Qt.PointingHandCursor
-          onPressed: mouse => root.setVolume(mouse.x / track.width)
-          onPositionChanged: mouse => {
-            if (pressed)
-              root.setVolume(mouse.x / track.width)
-          }
-        }
+      ProgressBar {
+        Layout.fillWidth: true
+        value: root.volume
+        interactive: true
+        onSeeked: level => root.setVolume(level)
       }
 
-      Text {
-        anchors.verticalCenter: parent.verticalCenter
-        width: 28
+      ShellText {
+        Layout.preferredWidth: 28
         horizontalAlignment: Text.AlignRight
         text: Math.round(root.volume * 100)
+        variant: "body1"
         color: Theme.foreground
-        font.family: Theme.monoFont
-        font.pixelSize: Theme.fontSize
       }
     }
   }

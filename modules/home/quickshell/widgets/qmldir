@@ -1,9 +1,14 @@
 module widgets
 
 singleton Theme 1.0 theme/Theme.qml
+singleton Typography 1.0 theme/Typography.qml
 singleton ShellState 1.0 state/ShellState.qml
 
 Anim 1.0 utils/Anim.qml
+IconText 1.0 utils/IconText.qml
+ShellText 1.0 utils/ShellText.qml
+ShellTextInput 1.0 utils/ShellTextInput.qml
+ProgressBar 1.0 utils/ProgressBar.qml
 
 Bar 1.0 shell/Bar.qml
 Clock 1.0 shell/Clock.qml
